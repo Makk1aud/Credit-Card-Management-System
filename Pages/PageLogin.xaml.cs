@@ -1,6 +1,4 @@
-﻿using Card_management_system.DataApp;
-using Card_management_system.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Card_management_system
+namespace Card_management_system.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для PageLogin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PageLogin : Page
     {
-        public MainWindow()
+        public PageLogin()
         {
             InitializeComponent();
-            PageClass.frameObject = frameMain;
-            frameMain.Navigate(new PageLogin());
         }
     }
 }

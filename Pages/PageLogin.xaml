@@ -1,0 +1,20 @@
+﻿<Page x:Class="Card_management_system.Pages.PageLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Card_management_system.Pages"
+      mc:Ignorable="d" 
+      
+      Title="Вход
+      в личный кабинет" Width="430"
+      Height="500" Background="Black">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Привет"
+                       Foreground="AliceBlue"
+                       FontSize="30pt"/>
+        </StackPanel>
+    </Grid>
+</Page>
