@@ -3,7 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Card_management_system"
              StartupUri="MainWindow.xaml">
+
     <Application.Resources>
+        <Style TargetType="Button" x:Key="buttonMainStyle">
+            <Setter Property="Background" Value="Cornsilk"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="15pt"/>
+        </Style>
+        
+        <Style TargetType="TextBlock" x:Key="textBlockMainStyle">
+            <Setter Property="Foreground" Value="Cornsilk"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
         
     </Application.Resources>
 </Application>

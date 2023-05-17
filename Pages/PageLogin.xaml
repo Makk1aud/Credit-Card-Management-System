@@ -6,15 +6,79 @@
       xmlns:local="clr-namespace:Card_management_system.Pages"
       mc:Ignorable="d" 
       
-      Title="Вход
-      в личный кабинет" Width="430"
+      Title="Вход в личный кабинет" Width="430"
       Height="500" Background="Black">
 
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Привет"
-                       Foreground="AliceBlue"
-                       FontSize="30pt"/>
+        <StackPanel VerticalAlignment="top"
+                    HorizontalAlignment="Center"
+                    Margin="0 50">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Логин:"
+                           FontSize="20pt"
+                           Margin="5"
+                           Width="100"
+                           Style="{StaticResource textBlockMainStyle}"/>
+                <TextBox Name="textboxLogin"
+                         Width="200"
+                         Background="Transparent"
+                         FontSize="20pt"
+                         MaxLength="12"
+                         Foreground="Beige"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Margin="0 10 0 2">
+                <TextBlock Text="Пароль:"
+                           FontSize="20pt"
+                           Margin="5"
+                           Width="100"
+                           Style="{StaticResource textBlockMainStyle}"/>
+
+                <TextBox Name="textBoxPass"
+                         Width="200"
+                         Background="Transparent"
+                             FontSize="20pt"
+                             Foreground="Beige"
+                         MaxLength="12"/>
+            </StackPanel>
+
+            <StackPanel >
+                <CheckBox Name="checkBoxShowPassword"
+                          Content="Показать пароль"
+                          Foreground="Beige"
+                          HorizontalAlignment="Right"
+                          Margin="0 0 0 10"
+                          Click="checkBoxShowPassword_Click"/>
+                <Button Name="buttonLogin"
+                        Width="100"
+                        Height="40"
+                        Foreground="Black"
+                        FontSize="15pt"
+                        Content="Войти"
+                        Background="Beige"/>
+                <TextBlock
+                    Name="textBlockRegistration"
+                    Width="110"
+                    Height="25"
+                    Foreground="BlueViolet"
+                    TextAlignment="Center"
+                    PreviewMouseDown="textBlockRegistration_PreviewMouseDown"
+                    FontSize="10pt"
+                    Text="Нет аккаунта?"
+                    Margin="10"/>
+                <!--Сделать линк лабел-->
+            </StackPanel>
+
         </StackPanel>
+        <PasswordBox Width="200"
+                     Background="Transparent"
+                     FontSize="20pt"
+                     Foreground="Beige"
+                     Margin="170,106,60,349"
+                     Height="45"
+                     Name="passwordBoxPass"
+                     MaxLength="12"/>
     </Grid>
 </Page>

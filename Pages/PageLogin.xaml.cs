@@ -23,6 +23,29 @@ namespace Card_management_system.Pages
         public PageLogin()
         {
             InitializeComponent();
+            textBoxPass.Visibility = Visibility.Hidden;
+        }
+
+        private void checkBoxShowPassword_Click(object sender, RoutedEventArgs e)
+        {
+            var checkBox = sender as CheckBox;
+            if(checkBox.IsChecked.Value)
+            {
+                textBoxPass.Visibility = Visibility.Visible;
+                textBoxPass.Text = passwordBoxPass.Password;
+                passwordBoxPass.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                passwordBoxPass.Visibility = Visibility.Visible;
+                passwordBoxPass.Password = textBoxPass.Text;
+                textBoxPass.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void textBlockRegistration_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Nice");
         }
     }
 }
