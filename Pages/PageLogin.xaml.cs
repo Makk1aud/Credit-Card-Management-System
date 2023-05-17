@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Card_management_system.DataApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,7 +46,7 @@ namespace Card_management_system.Pages
 
         private void textBlockRegistration_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Nice");
+            PageClass.frameObject.Navigate(new PageRegistration());
         }
     }
 }

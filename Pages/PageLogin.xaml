@@ -19,7 +19,7 @@
                            FontSize="20pt"
                            Margin="5"
                            Width="100"
-                           Style="{StaticResource textBlockMainStyle}"/>
+                           Style="{StaticResource textBlockRegistration}"/>
                 <TextBox Name="textboxLogin"
                          Width="200"
                          Background="Transparent"
@@ -34,7 +34,7 @@
                            FontSize="20pt"
                            Margin="5"
                            Width="100"
-                           Style="{StaticResource textBlockMainStyle}"/>
+                           Style="{StaticResource textBlockRegistration}"/>
 
                 <TextBox Name="textBoxPass"
                          Width="200"

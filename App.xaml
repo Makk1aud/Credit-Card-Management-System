@@ -11,9 +11,23 @@
             <Setter Property="FontSize" Value="15pt"/>
         </Style>
         
-        <Style TargetType="TextBlock" x:Key="textBlockMainStyle">
+        <Style TargetType="TextBlock" x:Key="textBlockRegistration">
             <Setter Property="Foreground" Value="Cornsilk"/>
             <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20pt"/>
+            <Setter Property="Width" Value="130"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="textBoxMainStyle">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontSize" Value="20pt"/>
+            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Width" Value="150"/>
+        </Style>
+
+        <Style TargetType="StackPanel" x:Key="stackPanelRegistration">
+            <Setter Property="Margin" Value="3"/>
         </Style>
         
     </Application.Resources>
