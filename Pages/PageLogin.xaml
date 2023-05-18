@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       
       Title="Вход в личный кабинет" Width="430"
-      Height="500" Background="Black">
+      Height="300" Background="Black">
 
     <Grid>
         <StackPanel VerticalAlignment="top"
@@ -26,6 +26,7 @@
                          FontSize="20pt"
                          MaxLength="12"
                          Foreground="Beige"/>
+                
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"
@@ -42,6 +43,14 @@
                              FontSize="20pt"
                              Foreground="Beige"
                          MaxLength="12"/>
+                <PasswordBox Width="200"
+                     Background="Transparent"
+                     FontSize="20pt"
+                     Foreground="Beige"
+                     Margin="-200 0 0 0"
+                     Height="45"
+                     Name="passwordBoxPass"
+                     MaxLength="12"/>
             </StackPanel>
 
             <StackPanel >
@@ -68,17 +77,9 @@
                     FontSize="10pt"
                     Text="Нет аккаунта?"
                     Margin="10"/>
-                <!--Сделать линк лабел-->
             </StackPanel>
 
         </StackPanel>
-        <PasswordBox Width="200"
-                     Background="Transparent"
-                     FontSize="20pt"
-                     Foreground="Beige"
-                     Margin="170,106,60,349"
-                     Height="45"
-                     Name="passwordBoxPass"
-                     MaxLength="12"/>
+
     </Grid>
 </Page>

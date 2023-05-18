@@ -27,6 +27,7 @@ namespace Card_management_system
             InitializeComponent();
             PageClass.frameObject = frameMain;
             frameMain.Navigate(new PageLogin());
+            
         }
     }
 }
