@@ -8,24 +8,29 @@
         
         Title="MainWindow" SizeToContent="Height"
         Width="430" Height="500" Background="Black"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="85*"/>
         </Grid.RowDefinitions>
-        
-        <StackPanel VerticalAlignment="Center">
-            <TextBlock
+        <Border BorderBrush="Beige" Background="Transparent" BorderThickness="1" DockPanel.Dock="Top">
+            <StackPanel VerticalAlignment="Center"
+                    OpacityMask="Beige"
+                        Height="70">
+                <TextBlock
                        Name="titleTextBlock"
                        Foreground="BurlyWood"
                        TextAlignment="Center"
                        FontSize="25pt"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
+                    Margin="12"
                 Text="{Binding ElementName=frameMain,
                 Path=Content.Title}"/>
-        </StackPanel>
+            </StackPanel>
+        </Border>
+        
         
         <Frame Grid.Row="1"
                Name="frameMain"

@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
 
       Title="Регистрация" Width="430"
-      Height="500" Background="Black">
+      Height="550" Background="Black">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center"
@@ -87,7 +87,8 @@
                          Style="{StaticResource textBoxMainStyle}"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal"
+                        Margin="0 0 0 30">
             <TextBlock Text="Телефон"
                            Style="{StaticResource textBlockRegistration}"/>
             <TextBox Name="textBoxTelephone"
