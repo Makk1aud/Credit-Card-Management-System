@@ -6,94 +6,88 @@
       xmlns:local="clr-namespace:Card_management_system.Pages"
       mc:Ignorable="d" 
 
-      Title="Регистрация" Width="430"
-      Height="550" Background="Black">
+      Title="Регистрация" Width="550"
+      Height="420" Background="Black">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
+                    VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal"
-                        Style="{StaticResource stackPanelRegistration}">
-                <TextBlock Text="Имя"
+                        Style="{StaticResource stackPanelRegistration}"
+                        Margin="7 0 0 -10">
+                
+                <StackPanel Style="{StaticResource stackPanelRegistration}">
+                    <TextBlock Text="Имя"
                            Style="{StaticResource textBlockRegistration}"/>
-                <TextBox Name="textBoxName"
+                    <TextBox Name="textBoxName"
+                         HorizontalAlignment="Left"
+                         Width="200"
                          Style="{StaticResource textBoxMainStyle}"/>
-            </StackPanel>
-            
-            <StackPanel Orientation="Horizontal"
-                        Style="{StaticResource stackPanelRegistration}">
-                <TextBlock Text="Фамилия"
+                </StackPanel>
+                
+                <StackPanel Style="{StaticResource stackPanelRegistration}">
+                    <TextBlock Text="Фамилия"
                            Style="{StaticResource textBlockRegistration}"/>
-                <TextBox Name="textBoxSurname"
-                         Style="{StaticResource textBoxMainStyle}"/>
-            </StackPanel>
-            
-            <StackPanel Orientation="Horizontal"
-                        Style="{StaticResource stackPanelRegistration}">
-                <TextBlock Text="Отчество"
+                    <TextBox Name="textBoxSurname"
+                         Style="{StaticResource textBoxMainStyle}"
+                             Width="200"/>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource stackPanelRegistration}">
+                    <TextBlock Text="Пол"
                            Style="{StaticResource textBlockRegistration}"/>
-                <TextBox Name="textBoxPatronymic"
-                         Style="{StaticResource textBoxMainStyle}"/>
-            </StackPanel>
-            
-            <StackPanel Orientation="Horizontal"
-                        Style="{StaticResource stackPanelRegistration}">
-                <TextBlock Text="Пол"
-                           Style="{StaticResource textBlockRegistration}"/>
-                <ComboBox Name="comboBoxGender"
+                    <ComboBox Name="comboBoxGender"
+                              HorizontalAlignment="Left"
                           Width="60"
+                              Height="40"
                           Background="Black"/>
-            </StackPanel>
-            
-            <StackPanel Orientation="Horizontal"
-                        Style="{StaticResource stackPanelRegistration}">
-                <TextBlock Text="Логин"
-                           Style="{StaticResource textBlockRegistration}"/>
-                <TextBox Name="textBoxLogin"
-                         Style="{StaticResource textBoxMainStyle}"/>
+                </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"
                         Style="{StaticResource stackPanelRegistration}">
-                <TextBlock Text="Пароль"
+                
+                <StackPanel Style="{StaticResource stackPanelRegistration}">
+                    <TextBlock Text="Email"
                            Style="{StaticResource textBlockRegistration}"/>
-                <PasswordBox Name="textBoxPass"
+                    <TextBox Name="textBoxEmail"
+                         Style="{StaticResource textBoxMainStyle}"/>
+                </StackPanel>
+                
+                <StackPanel Style="{StaticResource stackPanelRegistration}">
+                    <TextBlock Text="Телефон"
+                           Style="{StaticResource textBlockRegistration}"/>
+                    <TextBox Name="textBoxTelephone"
+                         Style="{StaticResource textBoxMainStyle}"/>
+                </StackPanel>
+                
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Style="{StaticResource stackPanelRegistration}">
+                <StackPanel Style="{StaticResource stackPanelRegistration}">
+                    <TextBlock Text="Пароль"
+                           Style="{StaticResource textBlockRegistration}"/>
+                    <PasswordBox Name="textBoxPass"
                              Foreground="Cornsilk"
                              FontSize="20pt"
-                             Width="150"
+                             Width="250"
                              Height="45"
                              Background="Transparent"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal"
-                        Style="{StaticResource stackPanelRegistration}">
-                <TextBlock Text="Повторите пароль"
-                           TextWrapping="WrapWithOverflow"
-                           Width="130"
+                </StackPanel>
+                <StackPanel Style="{StaticResource stackPanelRegistration}">
+                    <TextBlock Text="Повторите пароль"
+                           Width="250"
                            Style="{StaticResource textBlockRegistration}"/>
-                <PasswordBox Name="textBoxPassSecond"
+                    <PasswordBox Name="textBoxPassSecond"
                              Foreground="Cornsilk"
                              FontSize="20pt"
-                             Width="150"
+                             Width="250"
                              Height="45"
                              Background="Transparent"/>
+                </StackPanel>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal"
-                        Style="{StaticResource stackPanelRegistration}">
-                <TextBlock Text="Email"
-                           Style="{StaticResource textBlockRegistration}"/>
-                <TextBox Name="textBoxEmail"
-                         Style="{StaticResource textBoxMainStyle}"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal"
-                        Margin="0 0 0 30">
-            <TextBlock Text="Телефон"
-                           Style="{StaticResource textBlockRegistration}"/>
-            <TextBox Name="textBoxTelephone"
-                         Style="{StaticResource textBoxMainStyle}"/>
-            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
