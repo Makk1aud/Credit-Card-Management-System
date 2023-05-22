@@ -21,10 +21,10 @@
                            Width="100"
                            Style="{StaticResource textBlockRegistration}"/>
                 <TextBox Name="textboxLogin"
-                         Width="200"
+                         Width="250"
                          Background="Transparent"
                          FontSize="20pt"
-                         MaxLength="12"
+                         MaxLength="25"
                          Foreground="Beige"/>
                 
             </StackPanel>
@@ -38,16 +38,17 @@
                            Style="{StaticResource textBlockRegistration}"/>
 
                 <TextBox Name="textBoxPass"
-                         Width="200"
+                         Width="250"
                          Background="Transparent"
                              FontSize="20pt"
                              Foreground="Beige"
+                         Height="45"
                          MaxLength="12"/>
-                <PasswordBox Width="200"
+                <PasswordBox Width="250"
                      Background="Transparent"
                      FontSize="20pt"
                      Foreground="Beige"
-                     Margin="-200 0 0 0"
+                     Margin="-250 0 0 0"
                      Height="45"
                      Name="passwordBoxPass"
                      MaxLength="12"/>
@@ -66,7 +67,8 @@
                         Foreground="Black"
                         FontSize="15pt"
                         Content="Войти"
-                        Background="Beige"/>
+                        Background="Beige"
+                        Click="buttonLogin_Click"/>
                 <TextBlock
                     Name="textBlockRegistration"
                     Width="110"

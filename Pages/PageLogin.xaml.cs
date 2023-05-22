@@ -49,5 +49,19 @@ namespace Card_management_system.Pages
         {
             PageClass.frameObject.Navigate(new PageRegistration());
         }
+
+        public Users CheckSignIn() => PageClass.connectDB.Users.
+            FirstOrDefault(t => t.login == textboxLogin.Text && 
+            (t.password == textBoxPass.Text || t.password == passwordBoxPass.Password));
+
+        private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            var user = CheckSignIn();
+            if(user != null)
+            {
+                // Вход в систему 
+                MessageBox.Show("nice");
+            }
+        }
     }
 }
