@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
 
       Title="Регистрация" Width="550"
-      Height="420" Background="Black">
+      Height="400" Background="Black">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center"
@@ -38,14 +38,16 @@
                            Style="{StaticResource textBlockRegistration}"/>
                     <ComboBox Name="comboBoxGender"
                               HorizontalAlignment="Left"
-                          Width="60"
-                              Height="40"
-                          Background="Black"/>
+                          Width="80"
+                              Height="39"
+                          Background="Black"
+                              FontSize="14pt"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"
-                        Style="{StaticResource stackPanelRegistration}">
+                        Style="{StaticResource stackPanelRegistration}"
+                        Margin="7 0 0 -10">
                 
                 <StackPanel Style="{StaticResource stackPanelRegistration}">
                     <TextBlock Text="Email"
@@ -58,6 +60,7 @@
                     <TextBlock Text="Телефон"
                            Style="{StaticResource textBlockRegistration}"/>
                     <TextBox Name="textBoxTelephone"
+                             MaxLength="12"
                          Style="{StaticResource textBoxMainStyle}"/>
                 </StackPanel>
                 
@@ -87,7 +90,15 @@
                              Background="Transparent"/>
                 </StackPanel>
             </StackPanel>
-
+            <Button Name="buttonRegistration"
+                        Width="210"
+                        Height="40"
+                        Foreground="Black"
+                        FontSize="15pt"
+                        Content="Зарегистрироваться"
+                        Background="Beige"
+                        Click="buttonRegistration_Click"
+                    Margin="15"/>
         </StackPanel>
     </Grid>
 </Page>

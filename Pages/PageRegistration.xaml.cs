@@ -23,6 +23,21 @@ namespace Card_management_system.Pages
         public PageRegistration()
         {
             InitializeComponent();
+            comboBoxGender.ItemsSource = new List<string>() { "Муж", "Жен", "Нет" };
+        }
+
+        public bool CountNumbers(TextBox textBox) => textBox.Text.Where(x => Char.IsNumber(x)).Count() == 0;
+
+        public bool CheckEmail(TextBox textBox) => textBox.Text.Count(t => t == '@') > 0 && textBox.Text.Count(t => t == '@') < 2;
+
+        private void buttonRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            if(CountNumbers(textBoxName) && CountNumbers(textBoxSurname))
+            {
+                MessageBox.Show("Цифр нет");
+            }
+            if (CheckEmail(textBoxEmail))
+                MessageBox.Show("nice");
         }
     }
 }
