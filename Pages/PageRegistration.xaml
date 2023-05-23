@@ -61,6 +61,8 @@
                            Style="{StaticResource textBlockRegistration}"/>
                     <TextBox Name="textBoxTelephone"
                              MaxLength="12"
+                             Text="+"
+                             TextChanged="textBoxTelephone_TextChanged"
                          Style="{StaticResource textBoxMainStyle}"/>
                 </StackPanel>
                 
@@ -71,7 +73,7 @@
                 <StackPanel Style="{StaticResource stackPanelRegistration}">
                     <TextBlock Text="Пароль"
                            Style="{StaticResource textBlockRegistration}"/>
-                    <PasswordBox Name="textBoxPass"
+                    <PasswordBox Name="passwordBoxPassFirst"
                              Foreground="Cornsilk"
                              FontSize="20pt"
                              Width="250"
@@ -82,12 +84,13 @@
                     <TextBlock Text="Повторите пароль"
                            Width="250"
                            Style="{StaticResource textBlockRegistration}"/>
-                    <PasswordBox Name="textBoxPassSecond"
+                    <PasswordBox Name="passwordBoxPassSec"
                              Foreground="Cornsilk"
                              FontSize="20pt"
                              Width="250"
                              Height="45"
-                             Background="Transparent"/>
+                             Background="Transparent"
+                                 LostFocus="CheckEqualPassword"/>
                 </StackPanel>
             </StackPanel>
             <Button Name="buttonRegistration"

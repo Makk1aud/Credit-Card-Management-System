@@ -28,6 +28,8 @@ namespace Card_management_system.Pages
 
         public bool CountNumbers(TextBox textBox) => textBox.Text.Where(x => Char.IsNumber(x)).Count() == 0;
 
+        public bool CountNumbers(PasswordBox passwordBox) => passwordBox.Password.Where(x => Char.IsNumber(x)).Count() > 0;
+
         public bool CheckEmail(TextBox textBox) => textBox.Text.Count(t => t == '@') > 0 && textBox.Text.Count(t => t == '@') < 2;
 
         private void buttonRegistration_Click(object sender, RoutedEventArgs e)
@@ -38,6 +40,21 @@ namespace Card_management_system.Pages
             }
             if (CheckEmail(textBoxEmail))
                 MessageBox.Show("nice");
+            
+        }
+
+        private void textBoxTelephone_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (textBoxTelephone.Text.Count(t => t == '+') == 0)
+                textBoxTelephone.Text = "+" + textBoxTelephone.Text;
+        }
+
+        private bool CheckPassword(PasswordBox passwordBox) => CountNumbers(passwordBox) && passwordBox.Password.Length > 8;
+
+        private void CheckEqualPassword(object sender, RoutedEventArgs e)
+        {
+            if (CheckPassword(passwordBoxPassFirst) && Equals(passwordBoxPassFirst.Password, passwordBoxPassSec.Password))
+                MessageBox.Show("Equal");
         }
     }
 }
