@@ -78,9 +78,21 @@
                              FontSize="20pt"
                              Width="250"
                              Height="45"
-                             Background="Transparent"/>
+                             Background="Transparent">
+                        <PasswordBox.ToolTip>
+                            <ToolTip Background="#60AA4030" Foreground="White" HasDropShadow="False"
+                Placement="Relative" HorizontalOffset="15" VerticalOffset="10">
+                                <StackPanel>
+                                    <TextBlock>Цена:</TextBlock>
+                                    <TextBlock>Связной: 54990 рублей</TextBlock>
+                                    <TextBlock>Ситилинк: 539990 рублей</TextBlock>
+                                </StackPanel>
+                            </ToolTip>
+                        </PasswordBox.ToolTip>
+                    </PasswordBox>
                 </StackPanel>
                 <StackPanel Style="{StaticResource stackPanelRegistration}">
+                    
                     <TextBlock Text="Повторите пароль"
                            Width="250"
                            Style="{StaticResource textBlockRegistration}"/>
@@ -89,8 +101,7 @@
                              FontSize="20pt"
                              Width="250"
                              Height="45"
-                             Background="Transparent"
-                                 LostFocus="CheckEqualPassword"/>
+                             Background="Transparent"/>
                 </StackPanel>
             </StackPanel>
             <Button Name="buttonRegistration"
