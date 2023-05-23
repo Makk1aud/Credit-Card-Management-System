@@ -55,6 +55,8 @@ namespace Card_management_system.Pages
         {
             if (CheckPassword(passwordBoxPassFirst) && Equals(passwordBoxPassFirst.Password, passwordBoxPassSec.Password))
                 MessageBox.Show("Equal");
+            else
+                MessageBox.Show("Пароли должный совпадать");
         }
     }
 }
