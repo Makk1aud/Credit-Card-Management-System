@@ -20,6 +20,7 @@ namespace Card_management_system.DataApp
         public int balance { get; set; }
         public Nullable<System.DateTime> carddate { get; set; }
         public Nullable<int> cardid { get; set; }
+        public string cvv { get; set; }
     
         public virtual Cards Cards { get; set; }
         public virtual Users Users { get; set; }

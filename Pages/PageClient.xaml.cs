@@ -30,6 +30,7 @@ namespace Card_management_system.Pages
             textBlockFullName.Text = $"{user.name} {user.surname}";
             client = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id);
             textBlockBalance.Text = client.balance.ToString();
+            
         }
 
         private void Image_PreviewMouseDown(object sender, MouseButtonEventArgs e)

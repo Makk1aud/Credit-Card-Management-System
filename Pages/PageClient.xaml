@@ -27,6 +27,22 @@
                    Name="imageProfile"
                    PreviewMouseDown="imageProfile_PreviewMouseDown"/>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Name="comboBoxCardChoose"
+                          Width="130"
+                          Height="35"/>
+                <TextBlock Text="Нет карты?"
+                           Style="{StaticResource textBlockRegistration}"
+                           Width="100"
+                           Foreground="BlueViolet"
+                           Margin="10 2 0 0"
+                           FontSize="13pt"/>
+                
+            </StackPanel>
+
+            <StackPanel>
+                
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
