@@ -15,7 +15,7 @@
                     Margin="0 50">
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Логин:"
+                <TextBlock Text="Email:"
                            FontSize="20pt"
                            Margin="5"
                            Width="100"

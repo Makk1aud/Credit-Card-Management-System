@@ -10,6 +10,6 @@ namespace Card_management_system.DataApp
     internal class PageClass
     {
         public static Frame frameObject;
-        public static Card_Management_SystemEntities connectDB;
+        public static Card_Management_SystemEntities3 connectDB;
     }
 }

@@ -60,7 +60,7 @@ namespace Card_management_system.Pages
             {
                 name = textBoxName.Text,
                 surname = textBoxSurname.Text,
-                patronymic = "-",
+                patronymic = null,
                 gender = comboBoxGender.Text,
                 number = textBoxTelephone.Text,
                 login = textBoxEmail.Text,

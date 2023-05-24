@@ -26,7 +26,7 @@ namespace Card_management_system
         {
             InitializeComponent();
             PageClass.frameObject = frameMain;
-            PageClass.connectDB = new Card_Management_SystemEntities();
+            PageClass.connectDB = new Card_Management_SystemEntities3();
             frameMain.Navigate(new PageLogin());
         }
     }
