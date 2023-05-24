@@ -18,6 +18,7 @@ namespace Card_management_system.DataApp
         public int userid { get; set; }
         public string cardnumber { get; set; }
         public int balance { get; set; }
+        public Nullable<System.DateTime> carddate { get; set; }
         public Nullable<int> cardid { get; set; }
     
         public virtual Cards Cards { get; set; }

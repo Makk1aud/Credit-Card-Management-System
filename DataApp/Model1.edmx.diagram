@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="598120e6334446f9bd2122406ab49839" Name="Diagram1">
+      <Diagram DiagramId="8c268e0b02e646ceb4ce4f2a85d99d2c" Name="Diagram1">
         <EntityTypeShape EntityType="Card_Management_SystemModel.Cards" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Card_Management_SystemModel.Client" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Card_Management_SystemModel.Roles" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Card_Management_SystemModel.Users" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="Card_Management_SystemModel.FK__Client__cardid__6FE99F9F" ManuallyRouted="false" />
-        <AssociationConnector Association="Card_Management_SystemModel.FK__Client__expiryda__6EF57B66" ManuallyRouted="false" />
-        <AssociationConnector Association="Card_Management_SystemModel.FK__Users__roleid__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="Card_Management_SystemModel.FK__Client__cardid__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="Card_Management_SystemModel.FK__Client__cardid__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="Card_Management_SystemModel.FK__Users__roleid__76969D2E" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

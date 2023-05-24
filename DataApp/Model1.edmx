@@ -20,8 +20,8 @@
           <Property Name="userid" Type="int" Nullable="false" />
           <Property Name="cardnumber" Type="varchar" MaxLength="16" />
           <Property Name="balance" Type="int" Nullable="false" />
+          <Property Name="carddate" Type="date" />
           <Property Name="cardid" Type="int" />
-          <Property Name="expirydate" Type="date" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -44,19 +44,7 @@
           <Property Name="password" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="roleid" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Client__cardid__6FE99F9F">
-          <End Role="Cards" Type="Self.Cards" Multiplicity="0..1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cards">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="cardid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Client__expiryda__6EF57B66">
+        <Association Name="FK__Client__cardid__7A672E12">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
@@ -68,7 +56,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__roleid__6B24EA82">
+        <Association Name="FK__Client__cardid__7B5B524B">
+          <End Role="Cards" Type="Self.Cards" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cards">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="cardid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__roleid__76969D2E">
           <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -85,15 +85,15 @@
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Client__cardid__6FE99F9F" Association="Self.FK__Client__cardid__6FE99F9F">
-            <End Role="Cards" EntitySet="Cards" />
-            <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Client__expiryda__6EF57B66" Association="Self.FK__Client__expiryda__6EF57B66">
+          <AssociationSet Name="FK__Client__cardid__7A672E12" Association="Self.FK__Client__cardid__7A672E12">
             <End Role="Users" EntitySet="Users" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__roleid__6B24EA82" Association="Self.FK__Users__roleid__6B24EA82">
+          <AssociationSet Name="FK__Client__cardid__7B5B524B" Association="Self.FK__Client__cardid__7B5B524B">
+            <End Role="Cards" EntitySet="Cards" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__roleid__76969D2E" Association="Self.FK__Users__roleid__76969D2E">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
@@ -109,7 +109,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK__Client__cardid__6FE99F9F" FromRole="Cards" ToRole="Client" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Client__cardid__7B5B524B" FromRole="Cards" ToRole="Client" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -119,10 +119,10 @@
           <Property Name="userid" Type="Int32" Nullable="false" />
           <Property Name="cardnumber" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="balance" Type="Int32" Nullable="false" />
+          <Property Name="carddate" Type="DateTime" Precision="0" />
           <Property Name="cardid" Type="Int32" />
-          <Property Name="expirydate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Cards" Relationship="Self.FK__Client__cardid__6FE99F9F" FromRole="Client" ToRole="Cards" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__Client__expiryda__6EF57B66" FromRole="Client" ToRole="Users" />
+          <NavigationProperty Name="Cards" Relationship="Self.FK__Client__cardid__7B5B524B" FromRole="Client" ToRole="Cards" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Client__cardid__7A672E12" FromRole="Client" ToRole="Users" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -130,7 +130,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__Users__roleid__6B24EA82" FromRole="Roles" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__roleid__76969D2E" FromRole="Roles" ToRole="Users" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -145,10 +145,10 @@
           <Property Name="login" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="roleid" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK__Client__expiryda__6EF57B66" FromRole="Users" ToRole="Client" />
-          <NavigationProperty Name="Roles" Relationship="Self.FK__Users__roleid__6B24EA82" FromRole="Users" ToRole="Roles" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Client__cardid__7A672E12" FromRole="Users" ToRole="Client" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Users__roleid__76969D2E" FromRole="Users" ToRole="Roles" />
         </EntityType>
-        <Association Name="FK__Client__cardid__6FE99F9F">
+        <Association Name="FK__Client__cardid__7B5B524B">
           <End Role="Cards" Type="Self.Cards" Multiplicity="0..1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
@@ -160,7 +160,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Client__expiryda__6EF57B66">
+        <Association Name="FK__Client__cardid__7A672E12">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
@@ -172,7 +172,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__roleid__6B24EA82">
+        <Association Name="FK__Users__roleid__76969D2E">
           <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -184,20 +184,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Card_Management_SystemEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Card_Management_SystemEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cards" EntityType="Self.Cards" />
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK__Client__cardid__6FE99F9F" Association="Self.FK__Client__cardid__6FE99F9F">
+          <AssociationSet Name="FK__Client__cardid__7B5B524B" Association="Self.FK__Client__cardid__7B5B524B">
             <End Role="Cards" EntitySet="Cards" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK__Client__expiryda__6EF57B66" Association="Self.FK__Client__expiryda__6EF57B66">
+          <AssociationSet Name="FK__Client__cardid__7A672E12" Association="Self.FK__Client__cardid__7A672E12">
             <End Role="Users" EntitySet="Users" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__roleid__6B24EA82" Association="Self.FK__Users__roleid__6B24EA82">
+          <AssociationSet Name="FK__Users__roleid__76969D2E" Association="Self.FK__Users__roleid__76969D2E">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
@@ -207,7 +207,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Card_Management_SystemModelContainer" CdmEntityContainer="Card_Management_SystemEntities3">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Card_Management_SystemModelContainer" CdmEntityContainer="Card_Management_SystemEntities4">
           <EntitySetMapping Name="Cards">
             <EntityTypeMapping TypeName="Card_Management_SystemModel.Cards">
               <MappingFragment StoreEntitySet="Cards">
@@ -223,8 +223,8 @@
                 <ScalarProperty Name="userid" ColumnName="userid" />
                 <ScalarProperty Name="cardnumber" ColumnName="cardnumber" />
                 <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="carddate" ColumnName="carddate" />
                 <ScalarProperty Name="cardid" ColumnName="cardid" />
-                <ScalarProperty Name="expirydate" ColumnName="expirydate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

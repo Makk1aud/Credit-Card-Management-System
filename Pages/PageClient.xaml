@@ -5,10 +5,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Card_management_system.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageClient">
+      d:DesignHeight="500" d:DesignWidth="700"
+      Title="Личный кабинет" Background="Black">
 
     <Grid>
-        
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Top">
+            <TextBlock 
+                       Name="textBlockFullName"
+                       Width="300"
+                       Style="{StaticResource textBlockRegistration}"/>
+            <TextBlock Text="Баланс:"
+                       Width="90"
+                       Style="{StaticResource textBlockRegistration}"/>
+            <TextBlock Name="textBlockBalance"
+                       Style="{StaticResource textBlockRegistration}"
+                       Margin="3 0 0 0"/>
+            <Image Source="/Resource/Images/ProfileImage.png"
+                   Height="50"
+                   Margin="107 0 0 0"
+                   Name="imageProfile"
+                   PreviewMouseDown="imageProfile_PreviewMouseDown"/>
+        </StackPanel>
     </Grid>
 </Page>

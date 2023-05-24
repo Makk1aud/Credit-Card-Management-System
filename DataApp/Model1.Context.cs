@@ -13,10 +13,10 @@ namespace Card_management_system.DataApp
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Card_Management_SystemEntities3 : DbContext
+    public partial class Card_Management_SystemEntities4 : DbContext
     {
-        public Card_Management_SystemEntities3()
-            : base("name=Card_Management_SystemEntities3")
+        public Card_Management_SystemEntities4()
+            : base("name=Card_Management_SystemEntities4")
         {
         }
     
