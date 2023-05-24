@@ -112,7 +112,16 @@
                         Content="Зарегистрироваться"
                         Background="Beige"
                         Click="buttonRegistration_Click"
-                    Margin="15"/>
+                    Margin="7"/>
+            <Button Name="buttonBack"
+                        Width="90"
+                        Height="35"
+                        Foreground="Black"
+                        FontSize="13pt"
+                        Content="Назад"
+                        Background="Beige"
+                        Click="buttonBack_Click"
+                    Margin="7"/>
         </StackPanel>
     </Grid>
 </Page>

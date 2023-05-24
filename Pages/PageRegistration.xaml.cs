@@ -77,5 +77,9 @@ namespace Card_management_system.Pages
                 textBoxTelephone.Text = "+" + textBoxTelephone.Text;
         }
 
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            PageClass.frameObject.GoBack();
+        }
     }
 }

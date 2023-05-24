@@ -9,23 +9,24 @@
       Title="Личный кабинет" Background="Black">
 
     <Grid>
-        <StackPanel Orientation="Horizontal"
+        <StackPanel>
+            <StackPanel Orientation="Horizontal"
                     VerticalAlignment="Top">
-            <TextBlock 
+                <TextBlock 
                        Name="textBlockFullName"
                        Width="300"
                        Style="{StaticResource textBlockRegistration}"/>
-            <TextBlock Text="Баланс:"
+                <TextBlock Text="Баланс:"
                        Width="90"
                        Style="{StaticResource textBlockRegistration}"/>
-            <TextBlock Name="textBlockBalance"
-                       Style="{StaticResource textBlockRegistration}"
-                       Margin="3 0 0 0"/>
-            <Image Source="/Resource/Images/ProfileImage.png"
+                <TextBlock Name="textBlockBalance"
+                       Style="{StaticResource textBlockRegistration}"/>
+                <Image Source="/Resource/Images/ProfileImage.png"
                    Height="50"
-                   Margin="107 0 0 0"
+                   Margin="100 0 0 0"
                    Name="imageProfile"
                    PreviewMouseDown="imageProfile_PreviewMouseDown"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

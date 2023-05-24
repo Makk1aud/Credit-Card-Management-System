@@ -39,7 +39,7 @@ namespace Card_management_system.Pages
 
         private void imageProfile_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Nice");
         }
     }
 }
