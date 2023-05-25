@@ -30,7 +30,20 @@ namespace Card_management_system.Pages
             textBlockFullName.Text = $"{user.name} {user.surname}";
             client = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id);
             textBlockBalance.Text = client.balance.ToString();
-            
+            FillingCardDescription(client);
+        }
+
+        private void FillingCardDescription(Client client)
+        {
+            if (client.cardid == null)
+                return;
+            textBlockClientName.Text = $"{user.name} {user.surname}";
+            textBlockBalance.Text = client.balance.ToString();
+            textBlockCardCvv.Text = client.cvv.ToString();
+            textBlockCardDate.Text = $"{client.carddate.Value.Month}/{client.carddate.Value.Year}";
+            //textBlockCardType.Text = PageClass.connectDB.Cards.FirstOrDefault(x => x.id == client.cardid).name;
+            textBlockCardNumber.Text = client.cardnumber.ToString();
+
         }
 
         private void Image_PreviewMouseDown(object sender, MouseButtonEventArgs e)

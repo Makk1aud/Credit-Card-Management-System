@@ -18,7 +18,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userid" Type="int" Nullable="false" />
-          <Property Name="cardnumber" Type="varchar" MaxLength="16" />
+          <Property Name="cardnumber" Type="varchar" MaxLength="19" />
           <Property Name="balance" Type="int" Nullable="false" />
           <Property Name="carddate" Type="date" />
           <Property Name="cardid" Type="int" />
@@ -117,7 +117,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="userid" Type="Int32" Nullable="false" />
-          <Property Name="cardnumber" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="cardnumber" Type="String" MaxLength="19" FixedLength="false" Unicode="false" />
           <Property Name="balance" Type="Int32" Nullable="false" />
           <Property Name="carddate" Type="DateTime" Precision="0" />
           <Property Name="cardid" Type="Int32" />

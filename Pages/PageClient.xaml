@@ -23,9 +23,10 @@
                        Style="{StaticResource textBlockRegistration}"/>
                 <Image Source="/Resource/Images/ProfileImage.png"
                    Height="50"
-                   Margin="100 0 0 0"
+                   Margin="0 0 -250 0"
                    Name="imageProfile"
-                   PreviewMouseDown="imageProfile_PreviewMouseDown"/>
+                   PreviewMouseDown="imageProfile_PreviewMouseDown" 
+                       Width="51"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ComboBox Name="comboBoxCardChoose"
@@ -37,12 +38,38 @@
                            Foreground="BlueViolet"
                            Margin="10 2 0 0"
                            FontSize="13pt"/>
-                
+
             </StackPanel>
 
-            <StackPanel>
-                
+            <StackPanel HorizontalAlignment="Left" Height="289" Width="389">
+                <Image Source="/Resource/Images/CardCreditWhiteVersion.png" 
+                       Height="355" Width="415"
+                       Margin="0 -40 0 0"/>
             </StackPanel>
         </StackPanel>
+        <TextBlock Name="textBlockCardNumber"
+                   FontSize="17pt"
+                   Text="1234 1234 1234 1234"
+                    Margin="68,230,395,234"/>
+        <TextBlock Name="textBlockCardDate"
+                   FontSize="14pt"
+                   Text="05/26"
+                    Margin="210,263,431,201"/>
+        <TextBlock Name="textBlockClientName"
+                   FontSize="14pt"
+                   Text="OLEG PETROV"
+                    Margin="53,282,439,182"/>
+
+        
+        <TextBlock Name="textBlockCardCvv"
+                   FontSize="14pt"
+                   Text="337"
+                   TextAlignment="Right"
+                    Margin="186,141,472,330"/>
+        <TextBlock FontSize="9pt"
+                   TextWrapping="Wrap"
+                   Text="Никому не сообщайте код"
+                   TextAlignment="Left"
+                    Margin="240,139,374,320"/>
     </Grid>
 </Page>
