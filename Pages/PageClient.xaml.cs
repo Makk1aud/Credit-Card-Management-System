@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Card_management_system.Pages
 {
@@ -31,6 +33,8 @@ namespace Card_management_system.Pages
             client = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id);
             textBlockBalance.Text = client.balance.ToString();
             FillingCardDescription(client);
+            imageHidePassword.Visibility = Visibility.Hidden;
+            
         }
 
         private void FillingCardDescription(Client client)
@@ -39,21 +43,44 @@ namespace Card_management_system.Pages
                 return;
             textBlockClientName.Text = $"{user.name} {user.surname}";
             textBlockBalance.Text = client.balance.ToString();
-            textBlockCardCvv.Text = client.cvv.ToString();
+            textBlockCardCvv.Text = "$$$";
             textBlockCardDate.Text = $"{client.carddate.Value.Month}/{client.carddate.Value.Year}";
-            //textBlockCardType.Text = PageClass.connectDB.Cards.FirstOrDefault(x => x.id == client.cardid).name;
+            textBlockCardType.Text = PageClass.connectDB.Cards.FirstOrDefault(x => x.id == client.cardid).name;
             textBlockCardNumber.Text = client.cardnumber.ToString();
 
         }
 
-        private void Image_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void SwapCVV()
         {
+            if (textBlockCardCvv.Text == "$$$")
+                textBlockCardCvv.Text = client.cvv.ToString();
+            else
+                textBlockCardCvv.Text = "$$$";
 
+        }
+
+        private void ShowHidePassword(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Controls.Image image = sender as System.Windows.Controls.Image;
+            if(image == imageHidePassword)
+            {
+                imageShowPassword.Visibility = Visibility.Visible;
+                imageHidePassword.Visibility = Visibility.Hidden;
+                SwapCVV();
+            }
+            else
+            {
+                imageShowPassword.Visibility = Visibility.Hidden;
+                imageHidePassword.Visibility = Visibility.Visible;
+                SwapCVV();
+            }
+            
         }
 
         private void imageProfile_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Nice");
         }
+
     }
 }

@@ -171,6 +171,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\Images\HidePasswordImage.png" />
+    <Resource Include="Resource\Images\ShowPasswordImage.png" />
     <Resource Include="Resource\Images\CardCreditWhiteVersion.png" />
     <Resource Include="Resource\Images\CreditCard.png" />
   </ItemGroup>

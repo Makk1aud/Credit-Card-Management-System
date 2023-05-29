@@ -9,6 +9,20 @@
       Title="Личный кабинет" Background="Black">
 
     <Grid>
+        <Image Source="/Resource/Images/CardCreditWhiteVersion.png" 
+                       Height="355" Width="415" Margin="38,70,247,74"/>
+        <Image Source="/Resource/Images/ShowPasswordImage.png" 
+               Margin="343,191,287,219"
+               PreviewMouseDown="ShowHidePassword"
+               Height="40"
+               Width="65"
+               Name="imageShowPassword"/>
+        <Image Source="/Resource/Images/HidePasswordImage.png" 
+               Margin="360,218,304,242"
+               Name="imageHidePassword"
+               Height="40"
+               Width="36"
+               PreviewMouseDown="ShowHidePassword"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal"
                     VerticalAlignment="Top">
@@ -60,16 +74,20 @@
                    Text="OLEG PETROV"
                     Margin="53,282,439,182"/>
 
-        
+
         <TextBlock Name="textBlockCardCvv"
                    FontSize="14pt"
                    Text="337"
                    TextAlignment="Right"
-                    Margin="186,141,472,330"/>
-        <TextBlock FontSize="9pt"
-                   TextWrapping="Wrap"
-                   Text="Никому не сообщайте код"
-                   TextAlignment="Left"
-                    Margin="240,139,374,320"/>
+                    Margin="360,191,308,281"/>
+        <TextBlock FontSize="11pt"
+                   Text="CVV"
+                   Margin="363,169,303,300"/>
+        <TextBlock FontSize="13pt"
+                   Text="MASTERCARD"
+                   Name="textBlockCardType"
+                   Margin="231,286,359,182"
+                   TextAlignment="Right"/>
+
     </Grid>
 </Page>
