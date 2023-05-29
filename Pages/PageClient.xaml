@@ -64,11 +64,11 @@
         </StackPanel>
         <TextBlock Name="textBlockCardNumber"
                    FontSize="17pt"
-                   Text="1234 1234 1234 1234"
+                   Text="0000 0000 0000 0000"
                     Margin="68,230,395,234"/>
         <TextBlock Name="textBlockCardDate"
                    FontSize="14pt"
-                   Text="05/26"
+                   Text="00/00"
                     Margin="210,263,431,201"/>
         <TextBlock Name="textBlockClientName"
                    FontSize="14pt"
@@ -78,14 +78,14 @@
 
         <TextBlock Name="textBlockCardCvv"
                    FontSize="14pt"
-                   Text="337"
+                   Text="000"
                    TextAlignment="Right"
                     Margin="360,191,308,281"/>
         <TextBlock FontSize="11pt"
                    Text="CVV"
                    Margin="363,169,303,300"/>
         <TextBlock FontSize="13pt"
-                   Text="MASTERCARD"
+                   Text="NONE"
                    Name="textBlockCardType"
                    Margin="231,286,359,182"
                    TextAlignment="Right"/>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +23,8 @@ namespace Card_management_system.Pages
     public partial class PageCreateCard : Page
     {
         private Users user;
+        private string cardNumber;
+        public Random random = new Random();
         public PageCreateCard(Users user)
         {
             InitializeComponent();
@@ -41,7 +44,21 @@ namespace Card_management_system.Pages
         private void buttonCreateCard_Click(object sender, RoutedEventArgs e)
         {
             if (comboBoxCardType.SelectedItem != null && CheckCVV(textBoxCVV))
-                MessageBox.Show("Nace");
+            {
+                for (int i = 0; i < 4; i++)
+                    cardNumber += $"{random.Next(1000, 9999)} ";
+                Client client = new Client()
+                {
+                    userid = user.id,
+                    cardnumber = cardNumber.Remove(cardNumber.Length-1),
+                    carddate = DateTime.Now,
+                    Cards = comboBoxCardType.SelectedItem as Cards,
+                    cvv = textBoxCVV.Text
+                };
+                PageClass.connectDB.Client.Add(client);
+                PageClass.connectDB.SaveChanges();
+                MessageBox.Show("nice");
+            }
         }
 
         private void CheckBoxChange(object sender, RoutedEventArgs e)

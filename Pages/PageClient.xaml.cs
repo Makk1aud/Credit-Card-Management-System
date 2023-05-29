@@ -31,7 +31,6 @@ namespace Card_management_system.Pages
             this.user = user;
             textBlockFullName.Text = $"{user.name} {user.surname}";
             client = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id);
-            textBlockBalance.Text = client.balance.ToString();
             FillingCardDescription(client);
             imageHidePassword.Visibility = Visibility.Hidden;
             
@@ -39,7 +38,7 @@ namespace Card_management_system.Pages
 
         private void FillingCardDescription(Client client)
         {
-            if (client.cardid == null)
+            if (client == null)
                 return;
             textBlockClientName.Text = $"{user.name} {user.surname}";
             textBlockBalance.Text = client.balance.ToString();
@@ -61,6 +60,7 @@ namespace Card_management_system.Pages
 
         private void ShowHidePassword(object sender, MouseButtonEventArgs e)
         {
+            if(client== null) return;
             System.Windows.Controls.Image image = sender as System.Windows.Controls.Image;
             if(image == imageHidePassword)
             {
