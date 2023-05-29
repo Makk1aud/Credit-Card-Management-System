@@ -82,5 +82,9 @@ namespace Card_management_system.Pages
             MessageBox.Show("Nice");
         }
 
+        private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            PageClass.frameObject.Navigate(new PageCreateCard(user));
+        }
     }
 }

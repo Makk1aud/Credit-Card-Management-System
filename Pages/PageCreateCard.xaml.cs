@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Card_management_system.DataApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace Card_management_system.Pages
     /// </summary>
     public partial class PageCreateCard : Page
     {
-        public PageCreateCard()
+        private Users user;
+        public PageCreateCard(Users user)
         {
             InitializeComponent();
+            comboBoxCardType.SelectedValuePath = "id";
+            comboBoxCardType.DisplayMemberPath= "name";
+            comboBoxCardType.ItemsSource = PageClass.connectDB.Cards.ToList();
+            this.user = user;
         }
 
         private void buttonCreateCard_Click(object sender, RoutedEventArgs e)

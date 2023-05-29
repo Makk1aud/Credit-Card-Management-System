@@ -51,7 +51,8 @@
                            Width="100"
                            Foreground="BlueViolet"
                            Margin="10 2 0 0"
-                           FontSize="13pt"/>
+                           FontSize="13pt"
+                           PreviewMouseDown="TextBlock_PreviewMouseDown"/>
 
             </StackPanel>
 
