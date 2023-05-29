@@ -4,11 +4,48 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Card_management_system.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageCreateCard">
+      mc:Ignorable="d" d:DesignWidth="400"
+      Title="Создание карты" Background="Black" Height="260">
 
     <Grid>
-        
+        <StackPanel>
+            <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Top">
+                <StackPanel
+                Margin="15">
+                    <TextBlock Text="Выберите платежную систему"
+                           Style="{StaticResource textBlockRegistration}"
+                           FontSize="14pt" Width="187"
+                           TextWrapping="WrapWithOverflow"
+                           TextAlignment="Center"/>
+                    <ComboBox Name="comboBoxCardType"
+                          Width="180"
+                          Height="33"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Придумайте CVV"
+                           Style="{StaticResource textBlockRegistration}"
+                           FontSize="14pt" Width="134"
+                           TextWrapping="WrapWithOverflow"
+                           TextAlignment="Center"
+                           Margin="0 22 0 2"/>
+                    <TextBox Name="textBoxCVV"
+                         Style="{StaticResource textBoxMainStyle}"
+                         Width="80"
+                         Height="35"
+                         MaxLength="3"/>
+                </StackPanel>
+            </StackPanel>
+            <CheckBox Content="Я прочитал(а) пользовательское соглашение"
+                  Foreground="White"
+                      Margin="15"
+                  FontSize="15"/>
+            <Button Name="buttonCreateCard"
+                Click="buttonCreateCard_Click"
+                Content="Создать"
+                Style="{StaticResource buttonMainStyle}"
+                Height="40"
+                Width="100" />
+        </StackPanel>
     </Grid>
 </Page>
