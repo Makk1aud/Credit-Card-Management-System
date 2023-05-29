@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Card_management_system.Pages"
       mc:Ignorable="d" d:DesignWidth="400"
-      Title="Создание карты" Background="Black" Height="260">
+      Title="Создание карты" Background="Black" Height="270">
 
     <Grid>
         <StackPanel>
@@ -20,7 +20,8 @@
                            TextAlignment="Center"/>
                     <ComboBox Name="comboBoxCardType"
                           Width="180"
-                          Height="33"/>
+                          Height="33"
+                              FontSize="15pt"/>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock Text="Придумайте CVV"
@@ -31,7 +32,7 @@
                            Margin="0 22 0 2"/>
                     <TextBox Name="textBoxCVV"
                          Style="{StaticResource textBoxMainStyle}"
-                         Width="80"
+                         Width="53"
                          Height="35"
                          MaxLength="3"/>
                 </StackPanel>
@@ -39,13 +40,24 @@
             <CheckBox Content="Я прочитал(а) пользовательское соглашение"
                   Foreground="White"
                       Margin="15"
-                  FontSize="15"/>
+                  FontSize="15"
+                      Click="CheckBoxChange"/>
             <Button Name="buttonCreateCard"
                 Click="buttonCreateCard_Click"
                 Content="Создать"
                 Style="{StaticResource buttonMainStyle}"
                 Height="40"
-                Width="100" />
+                Width="100"
+                    IsEnabled="False"/>
+            <Button Name="buttonBack"
+                        Width="90"
+                        Height="35"
+                        Foreground="Black"
+                        FontSize="13pt"
+                        Content="Назад"
+                        Background="Beige"
+                        Click="buttonBack_Click"
+                    Margin="9"/>
         </StackPanel>
     </Grid>
 </Page>

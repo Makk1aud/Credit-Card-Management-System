@@ -25,15 +25,34 @@ namespace Card_management_system.Pages
         public PageCreateCard(Users user)
         {
             InitializeComponent();
+
             comboBoxCardType.SelectedValuePath = "id";
             comboBoxCardType.DisplayMemberPath= "name";
             comboBoxCardType.ItemsSource = PageClass.connectDB.Cards.ToList();
             this.user = user;
         }
 
+        private bool CheckCVV(TextBox textBlock)
+        {
+            int number;
+            return int.TryParse(textBoxCVV.Text, out number) && textBoxCVV.Text.Length == 3;
+        }
+
         private void buttonCreateCard_Click(object sender, RoutedEventArgs e)
         {
+            if (comboBoxCardType.SelectedItem != null && CheckCVV(textBoxCVV))
+                MessageBox.Show("Nace");
+        }
 
+        private void CheckBoxChange(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            buttonCreateCard.IsEnabled = checkBox.IsChecked.Value;
+        }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            PageClass.frameObject.GoBack();
         }
     }
 }
