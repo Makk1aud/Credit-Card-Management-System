@@ -56,13 +56,24 @@ namespace Card_management_system.Pages
             FirstOrDefault(t => t.login == textboxLogin.Text && 
             (t.password == textBoxPass.Text || t.password == passwordBoxPass.Password));
 
-        private void buttonLogin_Click(object sender, RoutedEventArgs e)
-        {  
+        private void LoginIntoAccount()
+        {
             var user = CheckSignIn();
-            if(user != null)
+            if (user != null)
             {
                 PageClass.frameObject.Navigate(new PageClient(user));
             }
+        }
+
+        private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        {  
+            LoginIntoAccount();
+        }
+
+        private void EnterHandler(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+                LoginIntoAccount();
         }
     }
 }
