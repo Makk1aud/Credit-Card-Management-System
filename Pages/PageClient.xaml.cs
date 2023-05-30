@@ -32,8 +32,12 @@ namespace Card_management_system.Pages
             textBlockFullName.Text = $"{user.name} {user.surname}";
             client = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id);
             FillingCardDescription(client);
+            //comboBoxCardChoose.SelectedValue = client.cardnumber;
             imageHidePassword.Visibility = Visibility.Hidden;
-            
+
+            comboBoxCardChoose.SelectedValuePath = "id";
+            comboBoxCardChoose.DisplayMemberPath = "cardnumber";
+            comboBoxCardChoose.ItemsSource = PageClass.connectDB.Client.Where(x => x.userid == user.id).ToList();
         }
 
         private void FillingCardDescription(Client client)
@@ -65,16 +69,14 @@ namespace Card_management_system.Pages
             if(image == imageHidePassword)
             {
                 imageShowPassword.Visibility = Visibility.Visible;
-                imageHidePassword.Visibility = Visibility.Hidden;
-                SwapCVV();
+                imageHidePassword.Visibility = Visibility.Hidden; 
             }
             else
             {
                 imageShowPassword.Visibility = Visibility.Hidden;
                 imageHidePassword.Visibility = Visibility.Visible;
-                SwapCVV();
             }
-            
+            SwapCVV();
         }
 
         private void imageProfile_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -85,6 +87,13 @@ namespace Card_management_system.Pages
         private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             PageClass.frameObject.Navigate(new PageCreateCard(user));
+        }
+
+        private void comboBoxCardChoose_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int selectedIndex = Convert.ToInt32(comboBoxCardChoose.SelectedValue);
+            client = PageClass.connectDB.Client.FirstOrDefault(x => x.id == selectedIndex);
+            FillingCardDescription(client);
         }
     }
 }

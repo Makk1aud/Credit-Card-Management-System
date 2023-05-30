@@ -57,7 +57,10 @@ namespace Card_management_system.Pages
                 };
                 PageClass.connectDB.Client.Add(client);
                 PageClass.connectDB.SaveChanges();
-                MessageBox.Show("nice");
+                MessageBox.Show("Вы успешно создали карту",
+                    "Успешно", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                PageClass.frameObject.Navigate(new PageClient(user));
             }
         }
 

@@ -44,8 +44,10 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ComboBox Name="comboBoxCardChoose"
-                          Width="130"
-                          Height="35"/>
+                          Width="195"
+                          Height="35"
+                          SelectionChanged="comboBoxCardChoose_SelectionChanged"
+                          FontSize="13pt"/>
                 <TextBlock Text="Нет карты?"
                            Style="{StaticResource textBlockRegistration}"
                            Width="100"

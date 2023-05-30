@@ -69,6 +69,10 @@ namespace Card_management_system.Pages
             };
             PageClass.connectDB.Users.Add(users);
             PageClass.connectDB.SaveChanges();
+            MessageBox.Show("Вы зарегистрировались",
+                    "Успешно", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            PageClass.frameObject.GoBack();
         }
 
         private void textBoxTelephone_TextChanged(object sender, TextChangedEventArgs e)

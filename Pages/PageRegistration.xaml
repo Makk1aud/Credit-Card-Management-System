@@ -22,6 +22,7 @@
                     <TextBox Name="textBoxName"
                          HorizontalAlignment="Left"
                          Width="200"
+                             MaxLength="20"
                          Style="{StaticResource textBoxMainStyle}"/>
                 </StackPanel>
                 
@@ -30,7 +31,8 @@
                            Style="{StaticResource textBlockRegistration}"/>
                     <TextBox Name="textBoxSurname"
                          Style="{StaticResource textBoxMainStyle}"
-                             Width="200"/>
+                             Width="200"
+                             MaxLength="20"/>
                 </StackPanel>
 
                 <StackPanel Style="{StaticResource stackPanelRegistration}">
@@ -53,7 +55,8 @@
                     <TextBlock Text="Email"
                            Style="{StaticResource textBlockRegistration}"/>
                     <TextBox Name="textBoxEmail"
-                         Style="{StaticResource textBoxMainStyle}"/>
+                         Style="{StaticResource textBoxMainStyle}"
+                             MaxLength="25"/>
                 </StackPanel>
                 
                 <StackPanel Style="{StaticResource stackPanelRegistration}">
@@ -78,17 +81,8 @@
                              FontSize="20pt"
                              Width="250"
                              Height="45"
-                             Background="Transparent">
-                        <PasswordBox.ToolTip>
-                            <ToolTip Background="#60AA4030" Foreground="White" HasDropShadow="False"
-                Placement="Relative" HorizontalOffset="15" VerticalOffset="10">
-                                <StackPanel>
-                                    <TextBlock>Цена:</TextBlock>
-                                    <TextBlock>Связной: 54990 рублей</TextBlock>
-                                    <TextBlock>Ситилинк: 539990 рублей</TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </PasswordBox.ToolTip>
+                             Background="Transparent"
+                                 MaxLength="12">
                     </PasswordBox>
                 </StackPanel>
                 <StackPanel Style="{StaticResource stackPanelRegistration}">
@@ -101,7 +95,8 @@
                              FontSize="20pt"
                              Width="250"
                              Height="45"
-                             Background="Transparent"/>
+                             Background="Transparent"
+                                 MaxLength="12"/>
                 </StackPanel>
             </StackPanel>
             <Button Name="buttonRegistration"
