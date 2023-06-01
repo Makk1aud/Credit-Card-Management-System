@@ -5,6 +5,14 @@
              StartupUri="MainWindow.xaml">
 
     <Application.Resources>
+        <Style TargetType="ComboBox" x:Key="comboBoxMain">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        
         <Style TargetType="Button" x:Key="buttonMainStyle">
             <Style.Resources>
                 <Style TargetType="Border">
