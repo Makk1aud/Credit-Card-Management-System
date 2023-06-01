@@ -8,13 +8,15 @@
       
       Title="Вход в личный кабинет" Width="430"
       Height="300" Background="Black">
-
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Resource/Background/BackgroundImage3.png"/>
+        </Grid.Background>
         <StackPanel VerticalAlignment="top"
                     HorizontalAlignment="Center"
                     Margin="0 50"
                     KeyDown="EnterHandler">
-
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Email:"
                            FontSize="20pt"
@@ -27,7 +29,7 @@
                          FontSize="20pt"
                          MaxLength="25"
                          Foreground="Beige"/>
-                
+
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"
@@ -81,7 +83,7 @@
                     Text="Нет аккаунта?"
                     Margin="10"/>
             </StackPanel>
-
+            
         </StackPanel>
 
     </Grid>

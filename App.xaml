@@ -30,6 +30,6 @@
         <Style TargetType="StackPanel" x:Key="stackPanelRegistration">
             <Setter Property="Margin" Value="6"/>
         </Style>
-        
+
     </Application.Resources>
 </Application>

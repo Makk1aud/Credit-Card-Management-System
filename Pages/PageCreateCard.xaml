@@ -8,6 +8,9 @@
       Title="Создание карты" Background="Black" Height="270">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Resource/Background/BackgroundImage3.png"/>
+        </Grid.Background>
         <StackPanel>
             <StackPanel Orientation="Horizontal"
                     VerticalAlignment="Top">

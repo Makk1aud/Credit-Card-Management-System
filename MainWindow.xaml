@@ -7,13 +7,19 @@
         mc:Ignorable="d"
         
         Title="MainWindow" SizeToContent="WidthAndHeight"
-        Width="430" Height="500" Background="Black"
-        ResizeMode="NoResize" >
+        Width="430" Height="500"
+        ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush 
+                ImageSource="./Resource/Background/BackgroundImage3.png"/>
+    </Window.Background>
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="85*"/>
         </Grid.RowDefinitions>
+        
         <Border BorderBrush="Beige" Background="Transparent" BorderThickness="1" DockPanel.Dock="Top">
             <StackPanel VerticalAlignment="Center"
                     OpacityMask="Beige"

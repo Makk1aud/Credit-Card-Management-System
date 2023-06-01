@@ -10,6 +10,9 @@
       Height="400" Background="Black">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Resource/Background/BackgroundImage3.png"/>
+        </Grid.Background>
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal"
