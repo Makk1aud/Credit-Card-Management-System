@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
 
       Title="Регистрация" Width="550"
-      Height="400" Background="Black">
+      Height="420" Background="Black">
 
     <Grid>
         <Grid.Background>
@@ -46,7 +46,8 @@
                           Width="80"
                               Height="39"
                           Background="Black"
-                              FontSize="14pt"/>
+                              FontSize="14pt"
+                              FontFamily="Lucida Sans Unicode"/>
                 </StackPanel>
             </StackPanel>
 
@@ -103,23 +104,19 @@
                 </StackPanel>
             </StackPanel>
             <Button Name="buttonRegistration"
-                        Width="210"
-                        Height="40"
-                        Foreground="Black"
-                        FontSize="15pt"
-                        Content="Зарегистрироваться"
-                        Background="Beige"
-                        Click="buttonRegistration_Click"
-                    Margin="7"/>
+                    Width="210"
+                    Height="40"
+                    Content="Зарегистрироваться"
+                    Click="buttonRegistration_Click"
+                    Margin="7"
+                    Style="{StaticResource buttonMainStyle}"/>
             <Button Name="buttonBack"
                         Width="90"
                         Height="35"
-                        Foreground="Black"
-                        FontSize="13pt"
                         Content="Назад"
-                        Background="Beige"
                         Click="buttonBack_Click"
-                    Margin="7"/>
+                    Margin="0 0 0 30"
+                    Style="{StaticResource buttonMainStyle}"/>
         </StackPanel>
     </Grid>
 </Page>

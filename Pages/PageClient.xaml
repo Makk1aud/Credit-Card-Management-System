@@ -34,29 +34,32 @@
                        Width="300"
                        Style="{StaticResource textBlockRegistration}"/>
                 <TextBlock Text="Баланс:"
-                       Width="90"
+                       Width="100"
+
                        Style="{StaticResource textBlockRegistration}"/>
                 <TextBlock Name="textBlockBalance"
+                           Text="00"
+                           Margin="0 6 0 0"
                        Style="{StaticResource textBlockRegistration}"/>
                 <Image Source="/Resource/Images/ProfileImage.png"
                    Height="50"
-                   Margin="0 0 -250 0"
+                   Margin="0 0 -258 0"
                    Name="imageProfile"
                    PreviewMouseDown="imageProfile_PreviewMouseDown" 
                        Width="51"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <ComboBox Name="comboBoxCardChoose"
-                          Width="195"
+                          Width="231"
                           Height="35"
                           SelectionChanged="comboBoxCardChoose_SelectionChanged"
-                          FontSize="13pt"/>
+                          FontSize="13pt"
+                          FontFamily="Lucida Sans Unicode"/>
                 <TextBlock Text="Нет карты?"
-                           Style="{StaticResource textBlockRegistration}"
-                           Width="100"
+                           Style="{StaticResource textBlockUnderline}"
                            Foreground="BlueViolet"
+                           TextAlignment="Left"
                            Margin="10 2 0 0"
-                           FontSize="13pt"
                            PreviewMouseDown="TextBlock_PreviewMouseDown"/>
 
             </StackPanel>

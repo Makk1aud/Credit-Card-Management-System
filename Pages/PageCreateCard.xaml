@@ -53,12 +53,10 @@
                 Width="100"
                     IsEnabled="False"/>
             <Button Name="buttonBack"
+                    Style="{StaticResource buttonMainStyle}"
                         Width="90"
                         Height="35"
-                        Foreground="Black"
-                        FontSize="13pt"
                         Content="Назад"
-                        Background="Beige"
                         Click="buttonBack_Click"
                     Margin="9"/>
         </StackPanel>
