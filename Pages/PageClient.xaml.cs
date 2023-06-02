@@ -98,7 +98,7 @@ namespace Card_management_system.Pages
 
         private void buttonTransaction_Click(object sender, RoutedEventArgs e)
         {
-
+            PageClass.frameObject.Navigate(new PageTransaction(client));
         }
     }
 }

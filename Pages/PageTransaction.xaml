@@ -1,40 +1,14 @@
-﻿<Page x:Class="Card_management_system.Pages.PageClient"
+﻿<Page x:Class="Card_management_system.Pages.PageTransaction"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Card_management_system.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="700"
-      Title="Личный кабинет" Background="Black"
+      d:DesignHeight="450" d:DesignWidth="700"
+      Title="PageTransaction"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Page.Resources>
-        <Style x:Key="FocusVisual">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <SolidColorBrush x:Key="TextBox.Static.Background" Color="#FFFFFFFF"/>
-        <Style x:Key="ComboBoxEditableTextBox" TargetType="{x:Type TextBox}">
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
-            <Setter Property="AllowDrop" Value="true"/>
-            <Setter Property="MinWidth" Value="0"/>
-            <Setter Property="MinHeight" Value="0"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        <ScrollViewer x:Name="PART_ContentHost" Background="Transparent" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="#FFF0F0F0" Offset="0.0"/>
             <GradientStop Color="#FFE5E5E5" Offset="1.0"/>
@@ -172,59 +146,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <ControlTemplate x:Key="ComboBoxEditableTemplate" TargetType="{x:Type ComboBox}">
-            <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
-                </Grid.ColumnDefinitions>
-                <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Bottom" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}">
-                    <theme:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MinWidth="{Binding ActualWidth, ElementName=templateRoot}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                        <Border x:Name="dropDownBorder" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="1">
-                            <ScrollViewer x:Name="DropDownScrollViewer">
-                                <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
-                                    <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-                                        <Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}"/>
-                                    </Canvas>
-                                    <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                                </Grid>
-                            </ScrollViewer>
-                        </Border>
-                    </theme:SystemDropShadowChrome>
-                </Popup>
-                <ToggleButton x:Name="toggleButton" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-                <Border x:Name="border" Background="{StaticResource TextBox.Static.Background}" Margin="{TemplateBinding BorderThickness}">
-                    <TextBox x:Name="PART_EditableTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                </Border>
-            </Grid>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsEnabled" Value="false">
-                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
-                </Trigger>
-                <Trigger Property="IsKeyboardFocusWithin" Value="true">
-                    <Setter Property="Foreground" Value="Black"/>
-                </Trigger>
-                <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
-                    <Setter Property="Margin" TargetName="shadow" Value="0,0,5,5"/>
-                    <Setter Property="Color" TargetName="shadow" Value="#71000000"/>
-                </Trigger>
-                <Trigger Property="HasItems" Value="false">
-                    <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
-                </Trigger>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsGrouping" Value="true"/>
-                        <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
-                    </MultiTrigger.Conditions>
-                    <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-                </MultiTrigger>
-                <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-                    <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
-                    <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-        <ControlTemplate x:Key="ComboBoxTemplate" TargetType="{x:Type ComboBox}">
+        <ControlTemplate x:Key="ComboBoxTemplate1" TargetType="{x:Type ComboBox}">
             <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -268,126 +190,70 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
-        <Style x:Key="ComboBoxStyleCorner" TargetType="{x:Type ComboBox}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="Padding" Value="6,3,5,3"/>
-            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
-            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
-            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-            <Setter Property="Template" Value="{StaticResource ComboBoxTemplate}"/>
-            <Style.Triggers>
-                <Trigger Property="IsEditable" Value="true">
-                    <Setter Property="IsTabStop" Value="false"/>
-                    <Setter Property="Padding" Value="2"/>
-                    <Setter Property="Template" Value="{StaticResource ComboBoxEditableTemplate}"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
     </Page.Resources>
-    
     
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="../Resource/Background/BackgroundImage3.png"/>
         </Grid.Background>
-        <Image Source="/Resource/Images/CardCreditWhiteVersion.png" 
-                       Height="355" Width="415" Margin="38,70,247,74"/>
-        <Image Source="/Resource/Images/ShowPasswordImage.png" 
-               Margin="343,191,287,219"
-               PreviewMouseDown="ShowHidePassword"
-               Height="34"
-               Width="59"
-               Name="imageShowPassword"/>
-        <Image Source="/Resource/Images/HidePasswordImage.png" 
-               Margin="360,218,304,242"
-               Name="imageHidePassword"
-               Height="34"
-               Width="30"
-               PreviewMouseDown="ShowHidePassword"/>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal"
-                    VerticalAlignment="Top">
-                <TextBlock 
-                       Name="textBlockFullName"
-                       Width="300"
-                       Style="{StaticResource textBlockRegistration}"/>
-                <TextBlock Text="Баланс:"
-                       Width="100"
-
-                       Style="{StaticResource textBlockRegistration}"/>
-                <TextBlock Name="textBlockBalance"
-                           Text="0"
-                           Margin="0 6 0 0"
-                       Style="{StaticResource textBlockRegistration}"/>
-                <Image Source="/Resource/Images/ProfileImage.png"
-                   Height="50"
-                   Margin="0 0 -258 0"
-                   Name="imageProfile"
-                   PreviewMouseDown="imageProfile_PreviewMouseDown" 
-                       Width="51"/>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Margin="30">
+                <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                          Name="comboBoxSenderCard"
+                          Style="{DynamicResource comboBoxMain}"
+                          Width="231"
+                          Height="35"/>
+                <TextBlock Style="{StaticResource textBlockRegistration}"
+                           Text="Введите сумму"
+                           Width="200"
+                           Margin="0 20 0 0"/>
+                <TextBox Name="textBoxMoneySum"
+                         Style="{StaticResource textBoxMainStyle}"
+                         Text="0"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ComboBox Style="{DynamicResource ComboBoxStyleCorner}" Name="comboBoxCardChoose"
+            <StackPanel VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Margin="30">
+                <ComboBox Name="comboBoxSelectMethod"
+                          Template="{DynamicResource ComboBoxTemplate1}"
+                          Style="{DynamicResource comboBoxMain}"
                           Width="231"
                           Height="35"
-                          SelectionChanged="comboBoxCardChoose_SelectionChanged"
-                          FontSize="13pt"/>
-                <TextBlock Text="Нет карты?"
-                           Style="{StaticResource textBlockUnderline}"
-                           Foreground="BlueViolet"
-                           TextAlignment="Left"
-                           Margin="10 2 0 0"
-                           PreviewMouseDown="TextBlock_PreviewMouseDown"/>
+                          SelectionChanged="comboBoxSelectMethod_SelectionChanged"/>
+                <StackPanel Visibility="Hidden" Name="stackPanelCard">
+                    <TextBox Name="textBoxCardNum"
+                         Style="{StaticResource textBoxMainStyle}"
+                         Margin="30"/>
+                </StackPanel>
+               
+                <StackPanel Margin="0 -68 0 0" Visibility="Hidden"
+                            Name="stackPanelTelephone">
+                    <TextBox Name="textBoxTelephone"
+                             MaxLength="12"
+                             Text="+"
+                         TextChanged="textBoxTelephone_TextChanged"
+                         Style="{StaticResource textBoxMainStyle}"
+                             LostFocus="textBoxTelephone_LostFocus"/>
 
-            </StackPanel>
+                    <ComboBox Name="comboBoxSelectRecipientCard"
+                              Template="{DynamicResource ComboBoxTemplate1}"
+                          Style="{DynamicResource comboBoxMain}"
+                          Width="231"
+                          Height="35"
+                          Margin="20"/>
 
-            <StackPanel HorizontalAlignment="Left" Height="289" Width="389">
-                <Image Source="/Resource/Images/CardCreditWhiteVersion.png" 
-                       Height="355" Width="415"
-                       Margin="0 -40 0 0"/>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left">
-                <Button Name="buttonTransaction"
-                        Style="{StaticResource buttonMainStyle}"
-                        Click="buttonTransaction_Click"
-                        Content="Перевод"
-                        FontSize="20pt"
-                        Margin="20 0 0 0"/>
+                </StackPanel>
+
             </StackPanel>
         </StackPanel>
-        <TextBlock Name="textBlockCardNumber"
-                   FontSize="17pt"
-                   Text="0000 0000 0000 0000"
-                    Margin="68,230,395,234"/>
-        <TextBlock Name="textBlockCardDate"
-                   FontSize="14pt"
-                   Text="00/00"
-                    Margin="210,263,431,201"/>
-        <TextBlock Name="textBlockClientName"
-                   FontSize="14pt"
-                   Text="#### #####"
-                    Margin="53,282,439,182"/>
-
-
-        <TextBlock Name="textBlockCardCvv"
-                   FontSize="14pt"
-                   Text="000"
-                   TextAlignment="Right"
-                    Margin="360,191,308,281"/>
-        <TextBlock FontSize="11pt"
-                   Text="CVV"
-                   Margin="363,169,303,300"/>
-        <TextBlock FontSize="13pt"
-                   Text="NONE"
-                   Name="textBlockCardType"
-                   Margin="231,286,359,182"
-                   TextAlignment="Right"/>
-
+        <Button Name="buttonTransaction"
+                Style="{StaticResource buttonMainStyle}"
+                Click="buttonTransaction_Click"
+                Content="Отправить"
+                FontSize="20pt"
+                Height="40"
+                Margin="245,225,300,185"/>
     </Grid>
 </Page>
