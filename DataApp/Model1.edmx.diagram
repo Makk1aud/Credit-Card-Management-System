@@ -12,6 +12,9 @@
         <AssociationConnector Association="Card_Management_SystemModel.FK__Client__cardid__7B5B524B" ManuallyRouted="false" />
         <AssociationConnector Association="Card_Management_SystemModel.FK__Client__cardid__7A672E12" ManuallyRouted="false" />
         <AssociationConnector Association="Card_Management_SystemModel.FK__Users__roleid__76969D2E" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Card_Management_SystemModel.Transactions" Width="1.5" PointX="9.125" PointY="1.875" />
+        <AssociationConnector Association="Card_Management_SystemModel.FK__Transacti__recip__02FC7413" />
+        <AssociationConnector Association="Card_Management_SystemModel.FK__Transacti__recip__03F0984C" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -31,6 +31,17 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="senderid" Type="int" Nullable="false" />
+          <Property Name="recipientid" Type="int" Nullable="false" />
+          <Property Name="moneysum" Type="money" Nullable="false" />
+          <Property Name="sendercardnum" Type="varchar" MaxLength="19" Nullable="false" />
+          <Property Name="recipientcardnum" Type="varchar" MaxLength="19" Nullable="false" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="id" />
@@ -69,6 +80,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Transacti__recip__02FC7413">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="senderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__recip__03F0984C">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="recipientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Users__roleid__76969D2E">
           <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -85,6 +120,7 @@
           <EntitySet Name="Cards" EntityType="Self.Cards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Client__cardid__7A672E12" Association="Self.FK__Client__cardid__7A672E12">
             <End Role="Users" EntitySet="Users" />
@@ -93,6 +129,14 @@
           <AssociationSet Name="FK__Client__cardid__7B5B524B" Association="Self.FK__Client__cardid__7B5B524B">
             <End Role="Cards" EntitySet="Cards" />
             <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__recip__02FC7413" Association="Self.FK__Transacti__recip__02FC7413">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__recip__03F0984C" Association="Self.FK__Transacti__recip__03F0984C">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
           <AssociationSet Name="FK__Users__roleid__76969D2E" Association="Self.FK__Users__roleid__76969D2E">
             <End Role="Roles" EntitySet="Roles" />
@@ -124,6 +168,8 @@
           <NavigationProperty Name="Cards" Relationship="Self.FK__Client__cardid__7B5B524B" FromRole="Client" ToRole="Cards" />
           <NavigationProperty Name="Users" Relationship="Self.FK__Client__cardid__7A672E12" FromRole="Client" ToRole="Users" />
           <Property Name="cvv" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transactions" Relationship="Card_Management_SystemModel.FK__Transacti__recip__02FC7413" FromRole="Client" ToRole="Transactions" />
+          <NavigationProperty Name="Transactions1" Relationship="Card_Management_SystemModel.FK__Transacti__recip__03F0984C" FromRole="Client" ToRole="Transactions" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -202,7 +248,53 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="Transactions" EntityType="Card_Management_SystemModel.Transactions" />
+          <AssociationSet Name="FK__Transacti__recip__02FC7413" Association="Card_Management_SystemModel.FK__Transacti__recip__02FC7413">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__recip__03F0984C" Association="Card_Management_SystemModel.FK__Transacti__recip__03F0984C">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="senderid" Type="Int32" Nullable="false" />
+          <Property Name="recipientid" Type="Int32" Nullable="false" />
+          <Property Name="moneysum" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="sendercardnum" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="false" />
+          <Property Name="recipientcardnum" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client" Relationship="Card_Management_SystemModel.FK__Transacti__recip__02FC7413" FromRole="Transactions" ToRole="Client" />
+          <NavigationProperty Name="Client1" Relationship="Card_Management_SystemModel.FK__Transacti__recip__03F0984C" FromRole="Transactions" ToRole="Client" />
+        </EntityType>
+        <Association Name="FK__Transacti__recip__02FC7413">
+          <End Type="Card_Management_SystemModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="Card_Management_SystemModel.Transactions" Role="Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="senderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__recip__03F0984C">
+          <End Type="Card_Management_SystemModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="Card_Management_SystemModel.Transactions" Role="Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="recipientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -250,6 +342,18 @@
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="roleid" ColumnName="roleid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="Card_Management_SystemModel.Transactions">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="recipientcardnum" ColumnName="recipientcardnum" />
+                <ScalarProperty Name="sendercardnum" ColumnName="sendercardnum" />
+                <ScalarProperty Name="moneysum" ColumnName="moneysum" />
+                <ScalarProperty Name="recipientid" ColumnName="recipientid" />
+                <ScalarProperty Name="senderid" ColumnName="senderid" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -322,7 +322,7 @@
 
                        Style="{StaticResource textBlockRegistration}"/>
                 <TextBlock Name="textBlockBalance"
-                           Text="00"
+                           Text="0"
                            Margin="0 6 0 0"
                        Style="{StaticResource textBlockRegistration}"/>
                 <Image Source="/Resource/Images/ProfileImage.png"
