@@ -95,5 +95,10 @@ namespace Card_management_system.Pages
             client = PageClass.connectDB.Client.FirstOrDefault(x => x.id == selectedIndex);
             FillingCardDescription(client);
         }
+
+        private void buttonTransaction_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
