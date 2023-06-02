@@ -29,5 +29,6 @@ namespace Card_management_system.DataApp
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Transactions> Transactions { get; set; }
     }
 }

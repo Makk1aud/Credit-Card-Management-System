@@ -98,6 +98,9 @@
     <Compile Include="DataApp\Roles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataApp\Transactions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataApp\Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

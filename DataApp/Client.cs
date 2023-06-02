@@ -14,6 +14,13 @@ namespace Card_management_system.DataApp
     
     public partial class Client
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Client()
+        {
+            this.Transactions = new HashSet<Transactions>();
+            this.Transactions1 = new HashSet<Transactions>();
+        }
+    
         public int id { get; set; }
         public int userid { get; set; }
         public string cardnumber { get; set; }
@@ -24,5 +31,9 @@ namespace Card_management_system.DataApp
     
         public virtual Cards Cards { get; set; }
         public virtual Users Users { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Transactions> Transactions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Transactions> Transactions1 { get; set; }
     }
 }
