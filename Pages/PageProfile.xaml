@@ -1,0 +1,99 @@
+﻿<Page x:Class="Card_management_system.Pages.PageProfile"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Card_management_system.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="500"
+      Title="Профиль">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Resource/Background/BackgroundImage3.png"/>
+        </Grid.Background>
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Left"
+                        Margin="25" 
+                        Orientation="Horizontal">
+                <Button Name="buttonHistoryOfTransaction"
+                        Content="История транзакций"
+                        Margin="10"
+                        Style="{StaticResource buttonMainStyle}"
+                        Click="buttonHistoryOfTransaction_Click"/>
+                <Button Name="buttonBack"
+                        Content="Назад"
+                        Style="{StaticResource buttonMainStyle}"
+                        Click="buttonBack_Click"
+                        Height="35"/>
+                <TextBlock Text="Выйти с аккаунта"
+                           Style="{StaticResource textBlockUnderline}"
+                           Width="150"
+                           PreviewMouseDown="TextBlock_PreviewMouseDown"/>
+            </StackPanel>
+            
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Моя информация"
+                           Style="{StaticResource textBlockRegistration}"
+                           Width="230"/>
+                <DataGrid AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          CanUserAddRows="False"
+                          Width="500"
+                          Name="dataGridAboutUser">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="Имя"
+                            Binding="{Binding name}"
+                            Width="15*"/>
+                        <DataGridTextColumn
+                            Header="Фамилия"
+                            Binding="{Binding surname}"
+                            Width="20*"/>
+                        <DataGridTextColumn
+                            Header="Отчество"
+                            Binding="{Binding patronymic}"
+                            Width="25*"/>
+                        <DataGridTextColumn
+                            Header="Гендер"
+                            Binding="{Binding gender}"
+                            Width="10*"/>
+                        <DataGridTextColumn
+                            Header="Номер"
+                            Binding="{Binding number}"
+                            Width="30*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Мои карты"
+                           Style="{StaticResource textBlockRegistration}"
+                           Width="230"/>
+                <DataGrid AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          CanUserAddRows="False"
+                          Width="500"
+                          Name="dataGridUserCards">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="Номер карты"
+                            Binding="{Binding cardnumber}"
+                            Width="35*"/>
+                        <DataGridTextColumn
+                            Header="Баланс"
+                            Binding="{Binding balance}"
+                            Width="20*"/>
+                        <DataGridTextColumn
+                            Header="Дата создания"
+                            Binding="{Binding carddate}"
+                            Width="15*"/>
+                        <DataGridTextColumn
+                            Header="Платеж. система"
+                            Binding="{Binding Cards.name}"
+                            Width="25*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
