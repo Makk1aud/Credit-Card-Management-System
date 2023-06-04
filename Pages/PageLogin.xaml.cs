@@ -24,8 +24,7 @@ namespace Card_management_system.Pages
         public PageLogin()
         {
             InitializeComponent();
-            textBoxPass.Visibility = Visibility.Hidden;
-            
+            textBoxPass.Visibility = Visibility.Hidden;   
         }
 
         private void checkBoxShowPassword_Click(object sender, RoutedEventArgs e)

@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Card_management_system.Pages"
+      xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="700"
       Title="PageTransaction"
@@ -190,6 +191,7 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        
     </Page.Resources>
     
     <Grid>
@@ -213,6 +215,7 @@
                          Style="{StaticResource textBoxMainStyle}"
                          Text="0"/>
             </StackPanel>
+            
             <StackPanel VerticalAlignment="Top"
                         HorizontalAlignment="Right"
                         Margin="30">
@@ -222,10 +225,12 @@
                           Width="231"
                           Height="35"
                           SelectionChanged="comboBoxSelectMethod_SelectionChanged"/>
+                
                 <StackPanel Visibility="Hidden" Name="stackPanelCard">
-                    <TextBox Name="textBoxCardNum"
+                    <TextBox Name="textBoxRecipientCardNum"
                          Style="{StaticResource textBoxMainStyle}"
-                         Margin="30"/>
+                         Margin="30"
+                             MaxLength="19"/>
                 </StackPanel>
                
                 <StackPanel Margin="0 -68 0 0" Visibility="Hidden"

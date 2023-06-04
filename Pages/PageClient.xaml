@@ -309,7 +309,8 @@
                Name="imageHidePassword"
                Height="34"
                Width="30"
-               PreviewMouseDown="ShowHidePassword"/>
+               PreviewMouseDown="ShowHidePassword"
+               Visibility="Hidden"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal"
                     VerticalAlignment="Top">
