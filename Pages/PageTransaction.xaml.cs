@@ -45,6 +45,15 @@ namespace Card_management_system.Pages
             stackPanel.IsEnabled = turner;
         }
 
+        private void TurnOffControl(StackPanel stackPanel ,bool turner)
+        {
+            if (turner)
+                stackPanel.Visibility = Visibility.Visible;
+            else
+                stackPanel.Visibility = Visibility.Hidden;
+            stackPanel.IsEnabled = turner;
+        }
+
         private void comboBoxSelectMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(comboBoxSelectMethod.SelectedIndex == 0)
