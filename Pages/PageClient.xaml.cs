@@ -32,13 +32,15 @@ namespace Card_management_system.Pages
             textBlockFullName.Text = $"{user.name} {user.surname}";
             client = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id);
             FillingCardDescription(client);
-            //comboBoxCardChoose.SelectedValue = client.cardnumber;
-            imageHidePassword.Visibility = Visibility.Hidden;
+
+
 
             comboBoxCardChoose.SelectedValuePath = "id";
             comboBoxCardChoose.DisplayMemberPath = "cardnumber";
             comboBoxCardChoose.ItemsSource = PageClass.connectDB.Client.Where(x => x.userid == user.id).ToList();
         }
+
+        private bool CheckForTransaction() => PageClass.connectDB.Client.Count(x => x.userid == user.id) > 0;
 
         private void FillingCardDescription(Client client)
         {
@@ -98,7 +100,8 @@ namespace Card_management_system.Pages
 
         private void buttonTransaction_Click(object sender, RoutedEventArgs e)
         {
-            PageClass.frameObject.Navigate(new PageTransaction(client));
+            if(CheckForTransaction())
+                PageClass.frameObject.Navigate(new PageTransaction(client));
         }
     }
 }
