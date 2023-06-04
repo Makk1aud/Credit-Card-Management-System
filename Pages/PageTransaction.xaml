@@ -7,7 +7,7 @@
       xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="700"
-      Title="PageTransaction"
+      Title="Окно переводов"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Page.Resources>
         <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
@@ -191,9 +191,9 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
-        
+
     </Page.Resources>
-    
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="../Resource/Background/BackgroundImage3.png"/>
@@ -215,7 +215,7 @@
                          Style="{StaticResource textBoxMainStyle}"
                          Text="0"/>
             </StackPanel>
-            
+
             <StackPanel VerticalAlignment="Top"
                         HorizontalAlignment="Right"
                         Margin="30">
@@ -225,14 +225,14 @@
                           Width="231"
                           Height="35"
                           SelectionChanged="comboBoxSelectMethod_SelectionChanged"/>
-                
+
                 <StackPanel Visibility="Hidden" Name="stackPanelCard">
                     <TextBox Name="textBoxRecipientCardNum"
                          Style="{StaticResource textBoxMainStyle}"
                          Margin="30"
                              MaxLength="19"/>
                 </StackPanel>
-               
+
                 <StackPanel Margin="0 -68 0 0" Visibility="Hidden"
                             Name="stackPanelTelephone">
                     <TextBox Name="textBoxTelephone"
@@ -260,5 +260,11 @@
                 FontSize="20pt"
                 Height="40"
                 Margin="245,225,300,185"/>
+        <Button Name="buttonBack"
+                Content="Назад"
+                Style="{StaticResource buttonMainStyle}"
+                Click="buttonBack_Click"
+                Margin="260,270,315,140"
+                FontSize="23"/>
     </Grid>
 </Page>

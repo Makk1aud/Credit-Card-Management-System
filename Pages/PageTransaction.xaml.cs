@@ -45,15 +45,6 @@ namespace Card_management_system.Pages
             stackPanel.IsEnabled = turner;
         }
 
-        private void TurnOffControl(StackPanel stackPanel ,bool turner)
-        {
-            if (turner)
-                stackPanel.Visibility = Visibility.Visible;
-            else
-                stackPanel.Visibility = Visibility.Hidden;
-            stackPanel.IsEnabled = turner;
-        }
-
         private void comboBoxSelectMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(comboBoxSelectMethod.SelectedIndex == 0)
@@ -112,6 +103,11 @@ namespace Card_management_system.Pages
             recipientUser = PageClass.connectDB.Users.FirstOrDefault(x => x.number == textBoxTelephone.Text);
             if(recipientUser != null)
                 comboBoxSelectRecipientCard.ItemsSource = PageClass.connectDB.Client.Where(x => x.userid == recipientUser.id).ToList();
+        }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            PageClass.frameObject.GoBack();
         }
     }
 }

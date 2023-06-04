@@ -83,7 +83,7 @@ namespace Card_management_system.Pages
 
         private void imageProfile_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Nice");
+            PageClass.frameObject.Navigate(new PageProfile(user));
         }
 
         private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
