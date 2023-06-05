@@ -23,8 +23,5 @@ namespace Card_management_system.Classes
             }
             catch (Exception ex)
     {
-                MessageBox.Show(ex.Message);
-            }
-        }
     }
 }
