@@ -21,8 +21,9 @@ namespace Card_management_system.Pages
     /// </summary>
     public partial class PageTransaction : Page
     {
-        Client client;
-        Users recipientUser;
+        private Client client;
+        private Users recipientUser;
+        private Transactions transactions;
         public PageTransaction(Client client)
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace Card_management_system.Pages
             comboBoxSelectRecipientCard.SelectedValuePath = "id";
             comboBoxSelectRecipientCard.DisplayMemberPath = "cardnumber";
         }
+
         // сделать также с паролем вначале
         private void TurnOffControl(StackPanel stackPanel ,bool turner)
         {
@@ -65,26 +67,32 @@ namespace Card_management_system.Pages
 
         private StackPanel IsEnableStackPanel() => stackPanelCard.IsEnabled ? stackPanelCard : stackPanelTelephone;
 
+        private void FillingTransactions(int recipientId, string recipientCardNum)
+        {
+            transactions.recipientid= recipientId;
+            transactions.recipientcardnum= recipientCardNum;
+        }
+
         private void buttonTransaction_Click(object sender, RoutedEventArgs e)
         {
             string recipientCardNum;
-            var transactions = new Transactions()
+            transactions = new Transactions()
             {
                 senderid = client.id,
                 sendercardnum = (comboBoxSenderCard.SelectedItem as Client).cardnumber,
-                moneysum = Convert.ToDecimal(textBoxMoneySum.Text)
+                moneysum = Convert.ToDecimal(textBoxMoneySum.Text),
+                transactiondata = DateTime.Now
             };
+
             if (stackPanelCard.IsEnabled)
             {
                 recipientCardNum = Convert.ToInt64(textBoxRecipientCardNum.Text).ToString("#### #### #### ####").ToString();
-                transactions.recipientid = PageClass.connectDB.Client.FirstOrDefault(x => x.cardnumber == recipientCardNum).id;
-                transactions.recipientcardnum = recipientCardNum;
+                FillingTransactions(PageClass.connectDB.Client.FirstOrDefault(x => x.cardnumber == recipientCardNum).id, recipientCardNum);
             }
             else
-            {
-                transactions.recipientid = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == recipientUser.id).id;
-                transactions.recipientcardnum = (comboBoxSelectRecipientCard.SelectedItem as Client).cardnumber;
-            }
+                FillingTransactions(PageClass.connectDB.Client.FirstOrDefault(x => x.userid == recipientUser.id).id,
+                    (comboBoxSelectRecipientCard.SelectedItem as Client).cardnumber);
+
             PageClass.connectDB.Transactions.Add(transactions);
             try
             {
@@ -93,7 +101,7 @@ namespace Card_management_system.Pages
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
             
         }
