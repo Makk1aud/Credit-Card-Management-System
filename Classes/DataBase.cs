@@ -22,7 +22,7 @@ namespace Card_management_system.Classes
                     MessageBoxImage.Information);
             }
             catch (Exception ex)
-            {
+    {
                 MessageBox.Show(ex.Message);
             }
         }
