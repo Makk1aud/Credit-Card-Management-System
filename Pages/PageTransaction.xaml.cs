@@ -1,4 +1,5 @@
-﻿using Card_management_system.DataApp;
+﻿using Card_management_system.Classes;
+using Card_management_system.DataApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,30 +66,9 @@ namespace Card_management_system.Pages
                 textBoxTelephone.Text = "+" + textBoxTelephone.Text;
         }
 
-        private StackPanel IsEnableStackPanel() => stackPanelCard.IsEnabled ? stackPanelCard : stackPanelTelephone;
-
-        private void FillingTransactions(int recipientId, string recipientCardNum)
-        {
-            transactions.recipientid= recipientId;
-            transactions.recipientcardnum= recipientCardNum;
-        }
-
-        private void SaveChangesDataBase(string message)
-        {
-
-        }
-
-        private void buttonTransaction_Click(object sender, RoutedEventArgs e)
+        private void ChooseMethodTransaction()
         {
             string recipientCardNum;
-            transactions = new Transactions()
-            {
-                senderid = client.id,
-                sendercardnum = (comboBoxSenderCard.SelectedItem as Client).cardnumber,
-                moneysum = Convert.ToDecimal(textBoxMoneySum.Text),
-                transactiondata = DateTime.Now
-            };
-
             if (stackPanelCard.IsEnabled)
             {
                 recipientCardNum = Convert.ToInt64(textBoxRecipientCardNum.Text).ToString("#### #### #### ####").ToString();
@@ -97,18 +77,33 @@ namespace Card_management_system.Pages
             else
                 FillingTransactions(PageClass.connectDB.Client.FirstOrDefault(x => x.userid == recipientUser.id).id,
                     (comboBoxSelectRecipientCard.SelectedItem as Client).cardnumber);
+        }
 
-            PageClass.connectDB.Transactions.Add(transactions);
+        private void FillingTransactions(int recipientId, string recipientCardNum)
+        {
+            transactions.recipientid= recipientId;
+            transactions.recipientcardnum= recipientCardNum;
+        }
+
+        private void buttonTransaction_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
-                PageClass.connectDB.SaveChanges();
-                MessageBox.Show("Получилось");
+                transactions = new Transactions()
+                {
+                    senderid = client.id,
+                    sendercardnum = (comboBoxSenderCard.SelectedItem as Client).cardnumber,
+                    moneysum = Convert.ToDecimal(textBoxMoneySum.Text),
+                    transactiondata = DateTime.Now
+                };
+                ChooseMethodTransaction();
+                PageClass.connectDB.Transactions.Add(transactions);
+                DataBaseCardManagement.SaveChangesDataBase("Успешно");
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Все поля должны быть заполнены");
             }
-            
         }
 
         private void textBoxTelephone_LostFocus(object sender, RoutedEventArgs e)
@@ -116,6 +111,8 @@ namespace Card_management_system.Pages
             recipientUser = PageClass.connectDB.Users.FirstOrDefault(x => x.number == textBoxTelephone.Text);
             if(recipientUser != null)
                 comboBoxSelectRecipientCard.ItemsSource = PageClass.connectDB.Client.Where(x => x.userid == recipientUser.id).ToList();
+            else
+                comboBoxSelectRecipientCard.ItemsSource = null;
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)

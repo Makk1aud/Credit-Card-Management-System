@@ -9,9 +9,9 @@ using System.Xml.Serialization;
 
 namespace Card_management_system.Classes
 {
-    static class DataBase
+    static class DataBaseCardManagement
     {
-        private static void SaveChangesDataBase(string message)
+        public static void SaveChangesDataBase(string message)
         {
             try
             {
