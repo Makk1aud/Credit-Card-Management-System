@@ -20,7 +20,7 @@ namespace Card_management_system.DataApp
         public decimal moneysum { get; set; }
         public string sendercardnum { get; set; }
         public string recipientcardnum { get; set; }
-        public Nullable<System.DateTime> transactiondata { get; set; }
+        public Nullable<System.DateTime> transactiondate { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Client Client1 { get; set; }

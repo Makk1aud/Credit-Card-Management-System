@@ -82,7 +82,7 @@ namespace Card_management_system.Pages
                     senderid = client.id,
                     sendercardnum = (comboBoxSenderCard.SelectedItem as Client).cardnumber,
                     moneysum = Convert.ToDecimal(textBoxMoneySum.Text),
-                    transactiondata = DateTime.Now
+                    transactiondate = DateTime.Now
                 };
                 ChooseMethodTransaction();
                 PageClass.connectDB.Transactions.Add(transactions);

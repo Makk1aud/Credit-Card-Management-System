@@ -41,7 +41,7 @@
           <Property Name="moneysum" Type="money" Nullable="false" />
           <Property Name="sendercardnum" Type="varchar" MaxLength="19" Nullable="false" />
           <Property Name="recipientcardnum" Type="varchar" MaxLength="19" Nullable="false" />
-          <Property Name="transactiondata" Type="date" />
+          <Property Name="transactiondate" Type="date" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -271,7 +271,7 @@
           <Property Name="recipientcardnum" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Client" Relationship="Card_Management_SystemModel.FK__Transacti__recip__02FC7413" FromRole="Transactions" ToRole="Client" />
           <NavigationProperty Name="Client1" Relationship="Card_Management_SystemModel.FK__Transacti__recip__03F0984C" FromRole="Transactions" ToRole="Client" />
-          <Property Name="transactiondata" Type="DateTime" Precision="0" />
+          <Property Name="transactiondate" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="FK__Transacti__recip__02FC7413">
           <End Type="Card_Management_SystemModel.Client" Role="Client" Multiplicity="1" />
@@ -350,7 +350,7 @@
           <EntitySetMapping Name="Transactions">
             <EntityTypeMapping TypeName="Card_Management_SystemModel.Transactions">
               <MappingFragment StoreEntitySet="Transactions">
-                <ScalarProperty Name="transactiondata" ColumnName="transactiondata" />
+                <ScalarProperty Name="transactiondate" ColumnName="transactiondate" />
                 <ScalarProperty Name="recipientcardnum" ColumnName="recipientcardnum" />
                 <ScalarProperty Name="sendercardnum" ColumnName="sendercardnum" />
                 <ScalarProperty Name="moneysum" ColumnName="moneysum" />
