@@ -30,12 +30,9 @@ namespace Card_management_system.Pages
             InitializeComponent();
             this.client = client;
             comboBoxSelectMethod.ItemsSource = new List<string>() { "По номеру телефона", "По номеру карты" };
-            comboBoxSenderCard.SelectedValuePath = "id";
-            comboBoxSenderCard.DisplayMemberPath = "cardnumber";
+            FillingComboBox.ComboBoxItems(comboBoxSenderCard, "id", "cardnumber");
             comboBoxSenderCard.ItemsSource = PageClass.connectDB.Client.Where(x => x.userid == client.userid).ToList();
-
-            comboBoxSelectRecipientCard.SelectedValuePath = "id";
-            comboBoxSelectRecipientCard.DisplayMemberPath = "cardnumber";
+            FillingComboBox.ComboBoxItems(comboBoxSelectRecipientCard, "id", "cardnumber");
         }
 
         // сделать также с паролем вначале
@@ -118,6 +115,12 @@ namespace Card_management_system.Pages
         private void buttonBack_Click(object sender, RoutedEventArgs e)
         {
             PageClass.frameObject.GoBack();
+        }
+
+        private void textBoxMoneySum_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            textBox.Clear();
         }
     }
 }

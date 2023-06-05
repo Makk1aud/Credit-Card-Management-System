@@ -1,4 +1,5 @@
-﻿using Card_management_system.DataApp;
+﻿using Card_management_system.Classes;
+using Card_management_system.DataApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,10 +69,7 @@ namespace Card_management_system.Pages
                 roleid = 2
             };
             PageClass.connectDB.Users.Add(users);
-            PageClass.connectDB.SaveChanges();
-            MessageBox.Show("Вы зарегистрировались",
-                    "Успешно", MessageBoxButton.OK,
-                    MessageBoxImage.Information);
+            DataBaseCardManagement.SaveChangesDataBase("Вы успешно зарегистрировались");
             PageClass.frameObject.GoBack();
         }
 

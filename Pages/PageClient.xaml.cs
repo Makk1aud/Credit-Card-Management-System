@@ -1,4 +1,5 @@
-﻿using Card_management_system.DataApp;
+﻿using Card_management_system.Classes;
+using Card_management_system.DataApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,10 +34,7 @@ namespace Card_management_system.Pages
             client = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id);
             FillingCardDescription(client);
 
-
-
-            comboBoxCardChoose.SelectedValuePath = "id";
-            comboBoxCardChoose.DisplayMemberPath = "cardnumber";
+            FillingComboBox.ComboBoxItems(comboBoxCardChoose, "id", "cardnumber");
             comboBoxCardChoose.ItemsSource = PageClass.connectDB.Client.Where(x => x.userid == user.id).ToList();
         }
 
