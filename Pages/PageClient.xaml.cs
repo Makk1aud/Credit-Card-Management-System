@@ -59,7 +59,6 @@ namespace Card_management_system.Pages
                 textBlockCardCvv.Text = client.cvv.ToString();
             else
                 textBlockCardCvv.Text = "$$$";
-
         }
 
         private void ShowHidePassword(object sender, MouseButtonEventArgs e)

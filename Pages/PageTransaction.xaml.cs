@@ -35,26 +35,17 @@ namespace Card_management_system.Pages
             FillingComboBox.ComboBoxItems(comboBoxSelectRecipientCard, "id", "cardnumber");
         }
 
-        // сделать также с паролем вначале
-        private void TurnOffControl(StackPanel stackPanel ,bool turner)
-        {
-            if (turner)
-                stackPanel.Visibility = Visibility.Visible;
-            else
-                stackPanel.Visibility = Visibility.Hidden;
-            stackPanel.IsEnabled = turner;
-        }
-
         private void comboBoxSelectMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ChangeStatusOfStackPanel changeStatus = new ChangeStatusOfStackPanel();
             if(comboBoxSelectMethod.SelectedIndex == 0)
             {
-                TurnOffControl(stackPanelCard, false);
-                TurnOffControl(stackPanelTelephone, true);
+                changeStatus.ChangeStatus(stackPanelCard, false);
+                changeStatus.ChangeStatus(stackPanelTelephone, true);
                 return;
             }
-            TurnOffControl(stackPanelCard, true);
-            TurnOffControl(stackPanelTelephone, false);
+            changeStatus.ChangeStatus(stackPanelCard, true);
+            changeStatus.ChangeStatus(stackPanelTelephone, false);
         }
 
         private void textBoxTelephone_TextChanged(object sender, TextChangedEventArgs e)
