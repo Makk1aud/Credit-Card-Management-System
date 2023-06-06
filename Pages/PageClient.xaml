@@ -326,7 +326,7 @@
                            Text="0"
                            Margin="0 6 0 0"
                        Style="{StaticResource textBlockRegistration}"/>
-                <Image Source="/Resource/Images/ProfileImage.png"
+                <Image Source="/Resource/Images/Profile/ProfileImage.png"
                    Height="50"
                    Margin="0 0 -258 0"
                    Name="imageProfile"
@@ -349,7 +349,7 @@
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left" Height="289" Width="389">
-                <Image Source="/Resource/Images/CardCreditWhiteVersion.png" 
+                <Image Source="/Resource/Images/CardsImages/CardCreditWhiteVersion.png" 
                        Height="355" Width="415"
                        Margin="0 -40 0 0"/>
             </StackPanel>

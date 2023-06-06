@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Card_management_system.Pages"
       mc:Ignorable="d" 
 
-      Title="Регистрация" Width="550"
+      Title="Регистрация" Width="570"
       Height="420" Background="Black"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Page.Resources>
@@ -251,11 +251,20 @@
                 <StackPanel Style="{StaticResource stackPanelRegistration}">
                     <TextBlock Text="Телефон"
                            Style="{StaticResource textBlockRegistration}"/>
-                    <TextBox Name="textBoxTelephone"
+                    <StackPanel Style="{StaticResource stackPanelRegistration}"
+                                Orientation="Horizontal"
+                                Margin="0">
+                        <TextBox Name="textBoxTelephone"
                              MaxLength="12"
                              Text="+"
                              TextChanged="textBoxTelephone_TextChanged"
                          Style="{StaticResource textBoxMainStyle}"/>
+                        <Image Name="imageClipboard"
+                               PreviewMouseDown="imageClipboard_PreviewMouseDown"
+                               Height="30"
+                               Source="/Resource/Images/ClipboardImage/Clipboard.png"/>
+                    </StackPanel>
+                    
                 </StackPanel>
                 
             </StackPanel>

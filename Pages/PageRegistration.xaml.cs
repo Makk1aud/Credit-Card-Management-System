@@ -38,7 +38,7 @@ namespace Card_management_system.Pages
 
         public bool CountNumbers(PasswordBox passwordBox) => passwordBox.Password.Where(x => Char.IsNumber(x)).Count() > 0;
 
-        public bool CheckEmail(TextBox textBox) => textBox.Text.Count(t => t == '@') > 0 && textBox.Text.Count(t => t == '@') < 2;
+        public bool CheckEmail(TextBox textBox) => textBox.Text.Contains("@") && textBox.Text.Count(t => t == '@') < 2;
 
         private bool CheckPassword(PasswordBox passwordBox) => CountNumbers(passwordBox) && passwordBox.Password.Length > 7;
 
@@ -49,19 +49,29 @@ namespace Card_management_system.Pages
                 MessageBox.Show("Пароли должный совпадать и иметь хотя бы 1 цифру");
                 return false;
             }
-            return CountNumbers(textBoxName) && CountNumbers(textBoxSurname)
-                && CheckEmail(textBoxEmail) && textBoxTelephone.Text.Length == 12;    
+            return CountNumbers(textBoxName)
+                   && CountNumbers(textBoxSurname)
+                   && CheckEmail(textBoxEmail)
+                   && textBoxTelephone.Text.Length == 12
+                   && !DataBaseCardManagement.CheckDistinctEmailData(textBoxEmail.Text);    
         }
 
         private void buttonRegistration_Click(object sender, RoutedEventArgs e)
         {
             if (!CheckUserInputData())
+            {
+                MessageBox.Show(
+                    "Проверьте поля", 
+                    "Warning", 
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
                 return;
+            }
+                
             Users users = new Users()
             {
                 name = textBoxName.Text,
                 surname = textBoxSurname.Text,
-                patronymic = null,
                 gender = comboBoxGender.Text,
                 number = textBoxTelephone.Text,
                 login = textBoxEmail.Text,
@@ -82,6 +92,11 @@ namespace Card_management_system.Pages
         private void buttonBack_Click(object sender, RoutedEventArgs e)
         {
             PageClass.frameObject.GoBack();
+        }
+
+        private void imageClipboard_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textBoxTelephone.Text = Clipboard.GetText();
         }
     }
 }

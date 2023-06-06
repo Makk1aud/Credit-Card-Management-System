@@ -201,19 +201,20 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\Images\ClipboardImage\Clipboard.png" />
     <Resource Include="Resource\Background\BackgroundImage3.png" />
     <Resource Include="Resource\Background\BackgroundImage2.png" />
     <Resource Include="Resource\Background\BackgroundImage.png" />
-    <Resource Include="Resource\Images\HidePasswordImage.png" />
-    <Resource Include="Resource\Images\ShowPasswordImage.png" />
-    <Resource Include="Resource\Images\CardCreditWhiteVersion.png" />
-    <Resource Include="Resource\Images\CreditCard.png" />
+    <Resource Include="Resource\Images\CvvImages\HidePasswordImage.png" />
+    <Resource Include="Resource\Images\CvvImages\ShowPasswordImage.png" />
+    <Resource Include="Resource\Images\CardsImages\CardCreditWhiteVersion.png" />
+    <Resource Include="Resource\Images\CardsImages\CreditCard.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\Images\ProfileImage.png" />
+    <Resource Include="Resource\Images\Profile\ProfileImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
