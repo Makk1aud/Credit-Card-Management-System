@@ -238,12 +238,21 @@
 
                     <StackPanel Margin="0 -68 0 0" Visibility="Hidden"
                             Name="stackPanelTelephone">
-                        <TextBox Name="textBoxTelephone"
-                             MaxLength="12"
-                             Text="+"
-                         TextChanged="textBoxTelephone_TextChanged"
-                         Style="{StaticResource textBoxMainStyle}"
-                             LostFocus="textBoxTelephone_LostFocus"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="textBoxTelephone"
+                                MaxLength="12"
+                                Text="+"
+                                TextChanged="textBoxTelephone_TextChanged"
+                                Style="{StaticResource textBoxMainStyle}"
+                                LostFocus="textBoxTelephone_LostFocus"
+                                Margin="45 0 0 0"/>
+                            
+                            <Image Name="imageClipboard"
+                               PreviewMouseDown="imageClipboard_PreviewMouseDown"
+                               Height="30"
+                               Source="/Resource/Images/ClipboardImage/Clipboard.png"/>
+                        </StackPanel>
+                        
 
                         <ComboBox Name="comboBoxSelectRecipientCard"
                               Template="{DynamicResource ComboBoxTemplate1}"

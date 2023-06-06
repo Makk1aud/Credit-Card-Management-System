@@ -73,8 +73,18 @@ namespace Card_management_system.Pages
             transactions.recipientcardnum= recipientCardNum;
         }
 
+        private bool CheckMoneySum(TextBox textBox)
+        {
+            decimal num;
+            return Decimal.TryParse(textBox.Text, out num);
+        }
+
+        public bool CheckSenderCard(TextBox textBox) => PageClass.connectDB.Client.FirstOrDefault(x => x.cardnumber == textBox.Text) != client;
+
         private void buttonTransaction_Click(object sender, RoutedEventArgs e)
         {
+            if (!CheckMoneySum(textBoxMoneySum) && !CheckSenderCard(textBoxRecipientCardNum))
+                return;
             try
             {
                 transactions = new Transactions()
@@ -90,14 +100,18 @@ namespace Card_management_system.Pages
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Все поля должны быть заполнены");
+                MessageBox.Show(
+                    "Все поля должны быть заполнены",
+                    "Warning",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
         }
 
         private void textBoxTelephone_LostFocus(object sender, RoutedEventArgs e)
         {
             recipientUser = PageClass.connectDB.Users.FirstOrDefault(x => x.number == textBoxTelephone.Text);
-            if(recipientUser != null)
+            if(recipientUser != null && client.userid != recipientUser.id) 
                 comboBoxSelectRecipientCard.ItemsSource = PageClass.connectDB.Client.Where(x => x.userid == recipientUser.id).ToList();
             else
                 comboBoxSelectRecipientCard.ItemsSource = null;
@@ -112,6 +126,11 @@ namespace Card_management_system.Pages
         {
             var textBox = sender as TextBox;
             textBox.Clear();
+        }
+
+        private void imageClipboard_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textBoxTelephone.Text = Clipboard.GetText();
         }
     }
 }

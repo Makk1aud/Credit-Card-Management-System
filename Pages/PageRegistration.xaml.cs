@@ -28,7 +28,7 @@ namespace Card_management_system.Pages
             comboBoxGender.ItemsSource = new List<string>() { "Муж", "Жен", "Нет" };
         }
 
-        public bool CountNumbers(TextBox textBox)
+        public bool CheckNames(TextBox textBox)
         {
             if (textBox.Text.Where(x => Char.IsNumber(x)).Count() == 0 && !String.IsNullOrEmpty(textBox.Text))
                 return true;
@@ -36,7 +36,11 @@ namespace Card_management_system.Pages
             return false;
         }
 
+        public bool CheckTelephone(TextBox textBox) => textBoxTelephone.Text.Length == 12 && CheckTelephoneSymbols(textBox);
+
         public bool CountNumbers(PasswordBox passwordBox) => passwordBox.Password.Where(x => Char.IsNumber(x)).Count() > 0;
+
+        public bool CheckTelephoneSymbols(TextBox textBox) => textBox.Text.Where(x => Char.IsNumber(x)).Count() == 11;
 
         public bool CheckEmail(TextBox textBox) => textBox.Text.Contains("@") && textBox.Text.Count(t => t == '@') < 2;
 
@@ -46,19 +50,46 @@ namespace Card_management_system.Pages
         {
             if (CheckPassword(passwordBoxPassFirst) && !Equals(passwordBoxPassFirst.Password, passwordBoxPassSec.Password))
             {
-                MessageBox.Show("Пароли должный совпадать и иметь хотя бы 1 цифру");
+                MessageBox.Show(
+                    "Пароли должный совпадать и иметь хотя бы 1 цифру",
+                    "Warning",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
                 return false;
             }
-            return CountNumbers(textBoxName)
-                   && CountNumbers(textBoxSurname)
+            return CheckNames(textBoxName)
+                   && CheckNames(textBoxSurname)
                    && CheckEmail(textBoxEmail)
-                   && textBoxTelephone.Text.Length == 12
+                   && CheckTelephone(textBoxTelephone)
                    && !DataBaseCardManagement.CheckDistinctEmailData(textBoxEmail.Text);    
+        }
+
+        private Users CreateUser()
+        {
+            try
+            {
+                Users users = new Users()
+                {
+                    name = textBoxName.Text,
+                    surname = textBoxSurname.Text,
+                    gender = comboBoxGender.Text,
+                    number = textBoxTelephone.Text,
+                    login = textBoxEmail.Text,
+                    password = passwordBoxPassFirst.Password,
+                    roleid = 2
+                };
+                return users;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            } 
         }
 
         private void buttonRegistration_Click(object sender, RoutedEventArgs e)
         {
-            if (!CheckUserInputData())
+            if (!CheckUserInputData() || CreateUser() == null)
             {
                 MessageBox.Show(
                     "Проверьте поля", 
@@ -67,18 +98,8 @@ namespace Card_management_system.Pages
                     MessageBoxImage.Error);
                 return;
             }
-                
-            Users users = new Users()
-            {
-                name = textBoxName.Text,
-                surname = textBoxSurname.Text,
-                gender = comboBoxGender.Text,
-                number = textBoxTelephone.Text,
-                login = textBoxEmail.Text,
-                password = passwordBoxPassFirst.Password,
-                roleid = 2
-            };
-            PageClass.connectDB.Users.Add(users);
+
+            PageClass.connectDB.Users.Add(CreateUser());
             DataBaseCardManagement.SaveChangesDataBase("Вы успешно зарегистрировались");
             PageClass.frameObject.GoBack();
         }
