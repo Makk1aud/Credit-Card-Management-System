@@ -35,7 +35,7 @@ namespace Card_management_system.Pages.PagesAdmin
 
         private void buttonListOfCards_Click(object sender, RoutedEventArgs e)
         {
-            PageClass.frameObject.Navigate(new PageAdminListOfCards());
+            PageClass.frameObject.Navigate(new PageAdminListOfCards(user));
         }
     }
 }

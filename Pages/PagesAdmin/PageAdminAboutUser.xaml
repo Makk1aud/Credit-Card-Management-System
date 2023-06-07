@@ -1,0 +1,60 @@
+﻿<Page x:Class="Card_management_system.Pages.PagesAdmin.PageAdminAboutUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Card_management_system.Pages.PagesAdmin"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="650"
+      Title="PageAdminAboutUser">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../../Resource/Background/BackgroundImage3.png"/>
+        </Grid.Background>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="buttonSaveChanges"
+                    Content="Сохранить"
+                    Style="{StaticResource buttonMainStyle}"
+                    Height="35"
+                    Width="120"
+                    HorizontalAlignment="Left"
+                    Margin="20"
+                    Click="buttonSaveChanges_Click"/>
+                <Button Name="buttonBack"
+                    Content="Назад"
+                    Style="{StaticResource buttonMainStyle}"
+                    Height="35"
+                    Width="120"
+                    HorizontalAlignment="Left"
+                    Margin="20"
+                    Click="buttonBack_Click"/>
+            </StackPanel>
+            <DataGrid AutoGenerateColumns="False"
+                      IsReadOnly="False"
+                      CanUserAddRows="False"
+                      Width="600"
+                      Height="150"
+                      Name="dataGridListOfCards">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Card number"
+                                        Width="22*"
+                                        Binding="{Binding Path=cardnumber}"/>
+                    <DataGridTextColumn Header="Balance"
+                                        Width="15*"
+                                        Binding="{Binding Path=balance}"/>
+                    <DataGridTextColumn Header="Card date"
+                                        Width="10*"
+                                        Binding="{Binding Path=carddate}"/>
+                    <DataGridTextColumn Header="Type"
+                                        Width="18*"
+                                        Binding="{Binding Path=Cards.name}"/>
+                    <DataGridTextColumn Header="Cvv"
+                                        Width="5*"
+                                        Binding="{Binding Path=cvv}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

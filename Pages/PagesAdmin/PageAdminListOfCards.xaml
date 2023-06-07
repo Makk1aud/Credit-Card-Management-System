@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Card_management_system.Pages.PagesAdmin"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="700"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="PageAdminListOfCards">
 
     <Grid>
@@ -13,33 +13,51 @@
             <ImageBrush ImageSource="../../Resource/Background/BackgroundImage3.png"/>
         </Grid.Background>
         <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="buttonSaveChanges"
+                    Content="Сохранить"
+                    Style="{StaticResource buttonMainStyle}"
+                    Height="35"
+                    Width="120"
+                    HorizontalAlignment="Left"
+                    Margin="20"
+                    Click="buttonSaveChanges_Click"/>
+                <Button Name="buttonBack"
+                    Content="Назад"
+                    Style="{StaticResource buttonMainStyle}"
+                    Height="35"
+                    Width="120"
+                    HorizontalAlignment="Left"
+                    Margin="20"
+                    Click="buttonBack_Click"/>
+            </StackPanel>
             <DataGrid AutoGenerateColumns="False"
                       IsReadOnly="False"
                       CanUserAddRows="False"
-                      Width="600"
+                      Width="750"
                       Name="dataGridListOfUsers">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name"
                                         Width="10*"
-                                        Binding="{Binding Path=Users.name}"/>
+                                        Binding="{Binding Path=name}"/>
                     <DataGridTextColumn Header="Surname"
                                         Width="10*"
-                                        Binding="{Binding Path=Users.surname}"/>
-                    <DataGridTextColumn Header="Card number"
-                                        Width="30*"
-                                        Binding="{Binding Path=cardnumber}"/>
-                    <DataGridTextColumn Header="Balance"
+                                        Binding="{Binding Path=surname}"/>
+                    <DataGridTextColumn Header="Patromymic"
                                         Width="10*"
-                                        Binding="{Binding Path=balance}"/>
-                    <DataGridTextColumn Header="Card date"
-                                        Width="10*"
-                                        Binding="{Binding Path=carddate}"/>
-                    <DataGridTextColumn Header="Type"
-                                        Width="10*"
-                                        Binding="{Binding Path=Cards.name}"/>
-                    <DataGridTextColumn Header="Cvv"
+                                        Binding="{Binding Path=patromymic}"/>
+                    <DataGridTextColumn Header="Gender"
                                         Width="5*"
-                                        Binding="{Binding Path=cvv}"/>
+                                        Binding="{Binding Path=gender}"/>
+                    <DataGridTextColumn Header="Number"
+                                        Width="15*"
+                                        Binding="{Binding Path=number}"/>
+                    <DataGridTextColumn Header="Login"
+                                        Width="18*"
+                                        Binding="{Binding Path=login}"/>
+                    <DataGridTextColumn Header="Passsword"
+                                        Width="15*"
+                                        Binding="{Binding Path=passsword}"/>
                     <DataGridTemplateColumn Width="10*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
