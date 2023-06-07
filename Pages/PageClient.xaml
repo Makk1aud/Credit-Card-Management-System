@@ -296,7 +296,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="../Resource/Background/BackgroundImage3.png"/>
         </Grid.Background>
-        <Image Source="/Resource/Images/CardCreditWhiteVersion.png" 
+        <Image Source="/Resource/Images/CardsImages/CardCreditWhiteVersion.png" 
                        Height="355" Width="415" Margin="38,70,247,74"/>
         <Image Source="/Resource/Images/ShowPasswordImage.png" 
                Margin="343,191,287,219"
