@@ -246,7 +246,7 @@
                                 Style="{StaticResource textBoxMainStyle}"
                                 LostFocus="textBoxTelephone_LostFocus"
                                 Margin="45 0 0 0"/>
-                            
+
                             <Image Name="imageClipboard"
                                PreviewMouseDown="imageClipboard_PreviewMouseDown"
                                Height="30"

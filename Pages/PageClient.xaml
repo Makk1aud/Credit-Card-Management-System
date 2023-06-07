@@ -298,13 +298,13 @@
         </Grid.Background>
         <Image Source="/Resource/Images/CardsImages/CardCreditWhiteVersion.png" 
                        Height="355" Width="415" Margin="38,70,247,74"/>
-        <Image Source="/Resource/Images/ShowPasswordImage.png" 
+        <Image Source="/Resource/Images/CvvImages/ShowPasswordImage.png" 
                Margin="343,191,287,219"
                PreviewMouseDown="ShowHidePassword"
                Height="34"
                Width="59"
                Name="imageShowPassword"/>
-        <Image Source="/Resource/Images/HidePasswordImage.png" 
+        <Image Source="/Resource/Images/CvvImages/HidePasswordImage.png" 
                Margin="360,218,304,242"
                Name="imageHidePassword"
                Height="34"
