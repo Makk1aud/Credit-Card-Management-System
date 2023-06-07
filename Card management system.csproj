@@ -133,6 +133,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PagesAdmin\PageAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PagesAdmin\PageAdminListOfCards.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +161,9 @@
     </Compile>
     <Compile Include="Pages\PageRegistration.xaml.cs">
       <DependentUpon>PageRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PagesAdmin\PageAdmin.xaml.cs">
+      <DependentUpon>PageAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PagesAdmin\PageAdminListOfCards.xaml.cs">
       <DependentUpon>PageAdminListOfCards.xaml</DependentUpon>

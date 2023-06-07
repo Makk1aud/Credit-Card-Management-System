@@ -17,19 +17,25 @@ using System.Windows.Shapes;
 namespace Card_management_system.Pages.PagesAdmin
 {
     /// <summary>
-    /// Логика взаимодействия для PageAdminListOfCards.xaml
+    /// Логика взаимодействия для PageAdmin.xaml
     /// </summary>
-    public partial class PageAdminListOfCards : Page
+    public partial class PageAdmin : Page
     {
-        public PageAdminListOfCards()
+        Users user;
+        public PageAdmin(Users user)
         {
             InitializeComponent();
-            dataGridListOfUsers.ItemsSource = PageClass.connectDB.Client.ToList();
+            this.user = user;
         }
 
-        private void buttonAboutUser_Click(object sender, RoutedEventArgs e)
+        private void buttonClientPage_Click(object sender, RoutedEventArgs e)
         {
+            PageClass.frameObject.Navigate(new PageClient(user));
+        }
 
+        private void buttonListOfCards_Click(object sender, RoutedEventArgs e)
+        {
+            PageClass.frameObject.Navigate(new PageAdminListOfCards());
         }
     }
 }

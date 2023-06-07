@@ -1,4 +1,5 @@
 ﻿using Card_management_system.DataApp;
+using Card_management_system.Pages.PagesAdmin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,19 +50,23 @@ namespace Card_management_system.Pages
             PageClass.frameObject.Navigate(new PageRegistration());
         }
 
-        
-
         public Users CheckSignIn() => PageClass.connectDB.Users.
             FirstOrDefault(t => t.login == textboxLogin.Text && 
             (t.password == textBoxPass.Text || t.password == passwordBoxPass.Password));
+
+        public void UserRole(Users users)
+        {
+            if(users.roleid == 1)
+                PageClass.frameObject.Navigate(new PageAdmin(users));
+            else
+                PageClass.frameObject.Navigate(new PageClient(users));
+        }
 
         private void LoginIntoAccount()
         {
             var user = CheckSignIn();
             if (user != null)
-            {
-                PageClass.frameObject.Navigate(new PageClient(user));
-            }
+                UserRole(user);
         }
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)

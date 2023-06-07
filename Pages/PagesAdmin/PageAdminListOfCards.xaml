@@ -5,10 +5,52 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Card_management_system.Pages.PagesAdmin"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="700"
       Title="PageAdminListOfCards">
 
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="../../Resource/Background/BackgroundImage3.png"/>
+        </Grid.Background>
+        <StackPanel>
+            <DataGrid AutoGenerateColumns="False"
+                      IsReadOnly="False"
+                      CanUserAddRows="False"
+                      Width="600"
+                      Name="dataGridListOfUsers">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name"
+                                        Width="10*"
+                                        Binding="{Binding Path=Users.name}"/>
+                    <DataGridTextColumn Header="Surname"
+                                        Width="10*"
+                                        Binding="{Binding Path=Users.surname}"/>
+                    <DataGridTextColumn Header="Card number"
+                                        Width="30*"
+                                        Binding="{Binding Path=cardnumber}"/>
+                    <DataGridTextColumn Header="Balance"
+                                        Width="10*"
+                                        Binding="{Binding Path=balance}"/>
+                    <DataGridTextColumn Header="Card date"
+                                        Width="10*"
+                                        Binding="{Binding Path=carddate}"/>
+                    <DataGridTextColumn Header="Type"
+                                        Width="10*"
+                                        Binding="{Binding Path=Cards.name}"/>
+                    <DataGridTextColumn Header="Cvv"
+                                        Width="5*"
+                                        Binding="{Binding Path=cvv}"/>
+                    <DataGridTemplateColumn Width="10*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="buttonAboutUser"
+                                        Content="Изменить"
+                                        Click="buttonAboutUser_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </Page>
