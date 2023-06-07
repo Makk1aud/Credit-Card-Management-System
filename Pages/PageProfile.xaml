@@ -65,7 +65,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
-            <StackPanel>
+            <StackPanel Margin="0 0 0 20">
                 <TextBlock Text="Мои карты"
                            Style="{StaticResource textBlockRegistration}"
                            Width="230"/>
@@ -73,7 +73,8 @@
                           IsReadOnly="True"
                           CanUserAddRows="False"
                           Width="500"
-                          Name="dataGridUserCards">
+                          Name="dataGridUserCards"
+                          Height="100">
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Header="Номер карты"
@@ -86,11 +87,11 @@
                         <DataGridTextColumn
                             Header="Дата создания"
                             Binding="{Binding carddate}"
-                            Width="15*"/>
+                            Width="20*"/>
                         <DataGridTextColumn
                             Header="Платеж. система"
                             Binding="{Binding Cards.name}"
-                            Width="25*"/>
+                            Width="20*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
