@@ -38,9 +38,9 @@
                           Style="{StaticResource comboBoxMain}"
                           Height="35"
                           Width="90"
-                          Margin="0 0 0 0"/>
+                          FontSize="14pt"
+                          SelectionChanged="comboBoxGenderSort_SelectionChanged"/>
                 <TextBox Name="textBoxNameSort"
-                         Text="Поиск по имени"
                          PreviewMouseDown="textBoxNameSort_PreviewMouseDown"
                          TextChanged="textBoxNameSort_TextChanged"
                          Style="{StaticResource textBoxMainStyle}"

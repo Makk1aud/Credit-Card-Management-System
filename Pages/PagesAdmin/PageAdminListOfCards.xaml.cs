@@ -26,8 +26,32 @@ namespace Card_management_system.Pages.PagesAdmin
         public PageAdminListOfCards(Users users)
         {
             InitializeComponent();
-            dataGridListOfUsers.ItemsSource = PageClass.connectDB.Users.ToList();
+            FillingDataGrid();
+            comboBoxGenderSort.ItemsSource = new List<string>() { "Нет", "Жен", "Муж" };
             this.users = users;
+        }
+
+        public List<Users> DefaultUserList()=> PageClass.connectDB.Users.ToList();
+
+        private void FillingDataGrid()
+        {
+            List<Users> usersList = DefaultUserList();
+            ComboBoxSort(ref usersList);
+            TextBoxSort(ref usersList);
+            dataGridListOfUsers.ItemsSource = usersList;
+        }
+
+        private void ComboBoxSort(ref List<Users> usersList)
+        {
+
+            if(comboBoxGenderSort.SelectedItem !=null)
+                usersList = usersList.Where(x => x.gender == comboBoxGenderSort.SelectedItem.ToString()).ToList();
+        }
+
+        private void TextBoxSort(ref List<Users> usersList)
+        {
+            if(textBoxNameSort.Text != String.Empty)
+                usersList = usersList.Where(x=> x.surname.StartsWith(textBoxNameSort.Text)).ToList();
         }
 
         private void buttonAboutUser_Click(object sender, RoutedEventArgs e)
@@ -47,7 +71,17 @@ namespace Card_management_system.Pages.PagesAdmin
 
         private void textBoxNameSort_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            textBoxNameSort.Clear();
+        }
 
+        private void textBoxNameSort_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            FillingDataGrid();
+        }
+
+        private void comboBoxGenderSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FillingDataGrid();
         }
     }
 }
