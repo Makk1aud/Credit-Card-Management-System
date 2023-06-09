@@ -30,11 +30,28 @@
                     HorizontalAlignment="Left"
                     Margin="20"
                     Click="buttonBack_Click"/>
+                <TextBlock Text="Gender"
+                           Margin="0 16 0 0"
+                           Width="100"
+                           Style="{StaticResource textBlockRegistration}"/>
+                <ComboBox Name="comboBoxGenderSort"
+                          Style="{StaticResource comboBoxMain}"
+                          Height="35"
+                          Width="90"
+                          Margin="0 0 0 0"/>
+                <TextBox Name="textBoxNameSort"
+                         Text="Поиск по имени"
+                         PreviewMouseDown="textBoxNameSort_PreviewMouseDown"
+                         TextChanged="textBoxNameSort_TextChanged"
+                         Style="{StaticResource textBoxMainStyle}"
+                         Height="35"
+                         Margin="10"/>
             </StackPanel>
             <DataGrid AutoGenerateColumns="False"
                       IsReadOnly="False"
                       CanUserAddRows="False"
                       Width="750"
+                      Height="300"
                       Name="dataGridListOfUsers">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name"

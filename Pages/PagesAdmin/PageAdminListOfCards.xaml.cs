@@ -44,5 +44,10 @@ namespace Card_management_system.Pages.PagesAdmin
         {
             DataBaseCardManagement.SaveChangesDataBase("Успешно");
         }
+
+        private void textBoxNameSort_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
