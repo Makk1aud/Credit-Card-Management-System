@@ -38,7 +38,9 @@ namespace Card_management_system.Pages
         private void comboBoxSelectMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ChangeStatusOfStackPanel changeStatus = new ChangeStatusOfStackPanel();
-            if(comboBoxSelectMethod.SelectedIndex == 0)
+            textBoxRecipientCardNum.Clear();
+            textBoxTelephone.Clear();
+            if (comboBoxSelectMethod.SelectedIndex == 0)
             {
                 changeStatus.ChangeStatus(stackPanelCard, false);
                 changeStatus.ChangeStatus(stackPanelTelephone, true);
@@ -76,13 +78,25 @@ namespace Card_management_system.Pages
         private bool CheckMoneySum(TextBox textBox)
         {
             decimal num;
-            return Decimal.TryParse(textBox.Text, out num);
+            return Decimal.TryParse(textBox.Text, out num) && int.Parse(textBox.Text) <= (comboBoxSenderCard.SelectedItem as Client).balance;
         }
 
-        public bool CheckSenderCard(TextBox textBox) => PageClass.connectDB.Client.FirstOrDefault(x => x.cardnumber == textBox.Text) != client;
+        public bool CheckSenderCard(TextBox textBox)
+        {
+            return PageClass.connectDB.Client.FirstOrDefault(x => x.cardnumber == textBox.Text) == (comboBoxSenderCard.SelectedItem as Client);
+        }
+
+        // Сделать вычитание суммы
+        public void MinusMoneySum()
+        {
+            var client = (comboBoxSenderCard.SelectedItem as Client);
+            client.balance -= Convert.ToInt32(textBoxMoneySum.Text);
+        }
 
         private void buttonTransaction_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(CheckMoneySum(textBoxMoneySum).ToString());
+            MessageBox.Show(CheckSenderCard(textBoxRecipientCardNum).ToString());
             if (!CheckMoneySum(textBoxMoneySum) && !CheckSenderCard(textBoxRecipientCardNum))
                 return;
             try
@@ -101,7 +115,7 @@ namespace Card_management_system.Pages
             catch(Exception ex)
             {
                 MessageBox.Show(
-                    "Все поля должны быть заполнены",
+                    "Проверьте вводимые данные",
                     "Warning",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);

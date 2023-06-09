@@ -52,7 +52,8 @@
                       CanUserAddRows="False"
                       Width="750"
                       Height="300"
-                      Name="dataGridListOfUsers">
+                      Name="dataGridListOfUsers"
+                      Margin="0 0 0 30">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name"
                                         Width="10*"

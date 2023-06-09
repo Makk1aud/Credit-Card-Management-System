@@ -36,7 +36,8 @@
                       CanUserAddRows="False"
                       Width="600"
                       Height="150"
-                      Name="dataGridListOfCards">
+                      Name="dataGridListOfCards"
+                      Margin="0 0 0 30">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Card number"
                                         Width="22*"
