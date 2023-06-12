@@ -26,7 +26,7 @@ namespace Card_management_system.Pages
         public PageClientTransaction(Client client)
         {
             InitializeComponent();
-            dataGridTransactions.ItemsSource = PageClass.connectDB.Transactions.Where(x => x.senderid == client.id).ToList();
+            dataGridTransactions.ItemsSource = PageClass.connectDB.Transactions.Where(x => x.senderid == client.id || x.recipientid == client.id).ToList();
             this.client = client;
             comboBoxMoneySort.ItemsSource = new List<string>() { "По возрастанию", "По убыванию" };
         }
@@ -35,7 +35,7 @@ namespace Card_management_system.Pages
 
         public void FillingDataGrid()
         {
-            var listSort = PageClass.connectDB.Transactions.Where(x => x.senderid == client.id).ToList();
+            var listSort = PageClass.connectDB.Transactions.Where(x => x.senderid == client.id || x.recipientid == client.id).ToList();
             ComboBoxSort(ref listSort);
             TextBoxSort(ref listSort);
             DatePickerSort(ref listSort);

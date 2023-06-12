@@ -23,6 +23,7 @@ namespace Card_management_system.Pages
     public partial class PageTransaction : Page
     {
         private Client client;
+        private Client recipientClient;
         private Users recipientUser;
         private Transactions transactions;
         public PageTransaction(Client client)
@@ -63,10 +64,15 @@ namespace Card_management_system.Pages
             {
                 recipientCardNum = Convert.ToInt64(textBoxRecipientCardNum.Text).ToString("#### #### #### ####").ToString();
                 FillingTransactions(PageClass.connectDB.Client.FirstOrDefault(x => x.cardnumber == recipientCardNum).id, recipientCardNum);
+                recipientClient = PageClass.connectDB.Client.FirstOrDefault(x => x.cardnumber == recipientCardNum);
             }
             else
+            {
                 FillingTransactions(PageClass.connectDB.Client.FirstOrDefault(x => x.userid == recipientUser.id).id,
                     (comboBoxSelectRecipientCard.SelectedItem as Client).cardnumber);
+                recipientClient = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == recipientUser.id);
+            }
+
         }
 
         private void FillingTransactions(int recipientId, string recipientCardNum)
@@ -109,6 +115,7 @@ namespace Card_management_system.Pages
                 ChooseMethodTransaction();
                 PageClass.connectDB.Transactions.Add(transactions);
                 client.balance -= Convert.ToInt32(textBoxMoneySum.Text);
+                recipientClient.balance += Convert.ToInt32(textBoxMoneySum.Text);
                 DataBaseCardManagement.SaveChangesDataBase("Успешно");
             }
             catch(Exception ex)

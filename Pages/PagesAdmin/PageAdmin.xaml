@@ -21,10 +21,16 @@
                     Style="{StaticResource buttonMainStyle}"
                     Click="buttonClientPage_Click"/>
             <Button Name="buttonListOfCards"
-                    Margin="10"
+                    Margin="0 5 0 0"
                     Content="Список пользователей"
                     Style="{StaticResource buttonMainStyle}"
                     Click="buttonListOfCards_Click"/>
+            <Button Name="buttonBack"
+                    Margin="5"
+                    Content="Назад"
+                    Style="{StaticResource buttonMainStyle}"
+                    Click="buttonBack_Click"
+                    Width="100"/>
         </StackPanel>
     </Grid>
 </Page>

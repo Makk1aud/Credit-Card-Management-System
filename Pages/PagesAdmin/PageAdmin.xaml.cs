@@ -37,5 +37,10 @@ namespace Card_management_system.Pages.PagesAdmin
         {
             PageClass.frameObject.Navigate(new PageAdminListOfCards(user));
         }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            PageClass.frameObject.GoBack();
+        }
     }
 }

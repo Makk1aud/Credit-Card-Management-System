@@ -233,7 +233,7 @@
                         <TextBox Name="textBoxRecipientCardNum"
                          Style="{StaticResource textBoxMainStyle}"
                          Margin="30"
-                             MaxLength="19"/>
+                             MaxLength="16"/>
                     </StackPanel>
 
                     <StackPanel Margin="0 -68 0 0" Visibility="Hidden"
