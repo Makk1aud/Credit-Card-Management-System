@@ -5,10 +5,50 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Card_management_system.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageClientTransaction">
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="История транзакций">
 
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="../Resource/Background/BackgroundImage3.png"/>
+        </Grid.Background>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="buttonBack"
+                    Style="{StaticResource buttonMainStyle}"
+                    Click="buttonBack_Click"
+                    Content="Назад"
+                    Width="120"
+                    Height="35"
+                    HorizontalAlignment="Left"
+                    Margin="20"/>
+
+                <TextBlock Text="Сумма больше"
+                           Style="{StaticResource textBlockRegistration}"/>
+            </StackPanel>
+            
+            <DataGrid CanUserAddRows="False"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      Name="dataGridTransactions"
+                      Height="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Карта получателя"
+                                        Binding="{Binding Path= sendercardnum}"
+                                        Width="30*"/>
+                    <DataGridTextColumn Header="Карта отправителя"
+                                        Binding="{Binding Path= recipientcardnum}"
+                                        Width="30*"/>
+                    <DataGridTextColumn Header="Сумма"
+                                        Binding="{Binding Path= moneysum}"
+                                        Width="20*"/>
+                    <DataGridTextColumn Header="Дата перевода"
+                                        Binding="{Binding Path=transactiondate}"
+                                        Width="20*"/>
+                    
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </Page>

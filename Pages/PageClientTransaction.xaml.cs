@@ -24,5 +24,10 @@ namespace Card_management_system.Pages
         {
             InitializeComponent();
         }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
