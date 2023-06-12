@@ -117,6 +117,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageClientTransaction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageCreateCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,6 +157,9 @@
   <ItemGroup>
     <Compile Include="Pages\PageClient.xaml.cs">
       <DependentUpon>PageClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageClientTransaction.xaml.cs">
+      <DependentUpon>PageClientTransaction.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageCreateCard.xaml.cs">
       <DependentUpon>PageCreateCard.xaml</DependentUpon>
