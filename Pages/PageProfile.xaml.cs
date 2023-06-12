@@ -42,8 +42,7 @@ namespace Card_management_system.Pages
 
         private void buttonHistoryOfTransaction_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Будет добавлено позже", "Объявление", MessageBoxButton.OK, MessageBoxImage.Information);
-
+            PageClass.frameObject.Navigate(new PageClientTransaction(PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id)));
         }
     }
 }

@@ -353,13 +353,20 @@
                        Height="355" Width="415"
                        Margin="0 -40 0 0"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left">
+            <StackPanel HorizontalAlignment="Left"
+                        Orientation="Horizontal">
                 <Button Name="buttonTransaction"
                         Style="{StaticResource buttonMainStyle}"
                         Click="buttonTransaction_Click"
                         Content="Перевод"
                         FontSize="20pt"
                         Margin="20 0 0 0"/>
+                <Button Name="buttonPageTransaction"
+                        Click="buttonPageTransaction_Click"
+                        Content="История переводов"
+                        Style="{StaticResource buttonMainStyle}"
+                        FontSize="20pt"
+                        Margin="10 0 0 0"/>
             </StackPanel>
         </StackPanel>
         <TextBlock Name="textBlockCardNumber"

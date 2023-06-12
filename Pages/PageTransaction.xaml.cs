@@ -89,14 +89,12 @@ namespace Card_management_system.Pages
         // Сделать вычитание суммы
         public void MinusMoneySum()
         {
-            var client = (comboBoxSenderCard.SelectedItem as Client);
+            var client = PageClass.connectDB.Client.FirstOrDefault(x=>x.cardnumber == (comboBoxSenderCard.SelectedItem as Client).cardnumber);
             client.balance -= Convert.ToInt32(textBoxMoneySum.Text);
         }
 
         private void buttonTransaction_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(CheckMoneySum(textBoxMoneySum).ToString());
-            MessageBox.Show(CheckSenderCard(textBoxRecipientCardNum).ToString());
             if (!CheckMoneySum(textBoxMoneySum) && !CheckSenderCard(textBoxRecipientCardNum))
                 return;
             try
@@ -110,6 +108,7 @@ namespace Card_management_system.Pages
                 };
                 ChooseMethodTransaction();
                 PageClass.connectDB.Transactions.Add(transactions);
+                client.balance -= Convert.ToInt32(textBoxMoneySum.Text);
                 DataBaseCardManagement.SaveChangesDataBase("Успешно");
             }
             catch(Exception ex)
@@ -133,7 +132,7 @@ namespace Card_management_system.Pages
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
         {
-            PageClass.frameObject.GoBack();
+            PageClass.frameObject.Navigate(new PageClient(PageClass.connectDB.Users.FirstOrDefault(x => x.id == client.userid)));
         }
 
         private void textBoxMoneySum_PreviewMouseDown(object sender, MouseButtonEventArgs e)

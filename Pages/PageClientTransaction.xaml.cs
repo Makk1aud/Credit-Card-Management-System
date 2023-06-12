@@ -22,19 +22,20 @@ namespace Card_management_system.Pages
     /// </summary>
     public partial class PageClientTransaction : Page
     {
-        public PageClientTransaction()
+        Client client;
+        public PageClientTransaction(Client client)
         {
             InitializeComponent();
-            dataGridTransactions.ItemsSource = DefaultList();
-
+            dataGridTransactions.ItemsSource = PageClass.connectDB.Transactions.Where(x => x.senderid == client.id).ToList();
+            this.client = client;
             comboBoxMoneySort.ItemsSource = new List<string>() { "По возрастанию", "По убыванию" };
         }
 
-        public List<Transactions> DefaultList() => PageClass.connectDB.Transactions.ToList();
+        public List<Transactions> DefaultList() => PageClass.connectDB.Transactions.Where(x => x.senderid == client.id).ToList();
 
         public void FillingDataGrid()
         {
-            var listSort = DefaultList();
+            var listSort = PageClass.connectDB.Transactions.Where(x => x.senderid == client.id).ToList();
             ComboBoxSort(ref listSort);
             TextBoxSort(ref listSort);
             DatePickerSort(ref listSort);

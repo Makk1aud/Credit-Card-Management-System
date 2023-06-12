@@ -99,6 +99,22 @@ namespace Card_management_system.Pages
         {
             if(CheckForTransaction())
                 PageClass.frameObject.Navigate(new PageTransaction(client));
+            else
+                MessageBox.Show("У вас нет карт",
+                    "Warning",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+        }
+
+        private void buttonPageTransaction_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckForTransaction())
+                PageClass.frameObject.Navigate(new PageClientTransaction(client));
+            else
+                MessageBox.Show("У вас нет карт", 
+                    "Warning", 
+                    MessageBoxButton.OK, 
+                    MessageBoxImage.Error);
         }
     }
 }
