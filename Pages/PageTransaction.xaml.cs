@@ -70,7 +70,7 @@ namespace Card_management_system.Pages
             {
                 FillingTransactions(PageClass.connectDB.Client.FirstOrDefault(x => x.userid == recipientUser.id).id,
                     (comboBoxSelectRecipientCard.SelectedItem as Client).cardnumber);
-                recipientClient = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == recipientUser.id);
+                recipientClient = PageClass.connectDB.Client.FirstOrDefault(x => x.cardnumber == comboBoxSelectRecipientCard.Text);
             }
 
         }
@@ -114,7 +114,8 @@ namespace Card_management_system.Pages
                 };
                 ChooseMethodTransaction();
                 PageClass.connectDB.Transactions.Add(transactions);
-                client.balance -= Convert.ToInt32(textBoxMoneySum.Text);
+                var clientbalance = PageClass.connectDB.Client.FirstOrDefault(x => x.cardnumber == comboBoxSenderCard.Text);
+                clientbalance.balance -= Convert.ToInt32(textBoxMoneySum.Text);
                 recipientClient.balance += Convert.ToInt32(textBoxMoneySum.Text);
                 DataBaseCardManagement.SaveChangesDataBase("Успешно");
             }

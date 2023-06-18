@@ -219,13 +219,14 @@
                             Background="Transparent" 
                             BorderThickness="1" 
                             DockPanel.Dock="Top">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Сумма больше"
+                        <StackPanel >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Сумма больше"
                                 FontSize="10pt"
                                 Height="20"
                                 Width="100"
                                 Style="{StaticResource textBlockRegistration}"/>
-                            <TextBox Name="textBoxMoneySort"
+                                <TextBox Name="textBoxMoneySort"
                                 Style="{StaticResource textBoxMainStyle}"
                                 Height="30"
                                 Width="100"
@@ -233,16 +234,35 @@
                                 Margin="10"
                                 FontSize="13pt"
                                 TextChanged="textBoxMoneySort_TextChanged"/>
-                            <DatePicker Name="datePickerTransactionSort"
+                                <DatePicker Name="datePickerTransactionSort"
                                 Width="100"
                                 Height="30"
                                 Margin="0 0 10 0"
                                 SelectedDateChanged="datePickerTransactionSort_SelectedDateChanged"/>
-                            <ComboBox Template="{DynamicResource ComboBoxTemplate1}" Name="comboBoxMoneySort"
+                                <ComboBox Template="{DynamicResource ComboBoxTemplate1}" Name="comboBoxMoneySort"
                                 Style="{StaticResource comboBoxMain}"
                                 Width="100"
                                 Height="30"
                                 SelectionChanged="comboBoxMoneySort_SelectionChanged"/>
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Margin="5">
+                                <RadioButton Name="radioButtonSender"
+                                         Content="Я отправлял"
+                                         Click="radioButtonChange"
+                                         Style="{StaticResource radioButtonMainStyle}"/>
+                                <RadioButton Name="radioButtonRecipient"
+                                         Content="Я получал"
+                                         Click="radioButtonChange"
+                                         Style="{StaticResource radioButtonMainStyle}"/>
+                                <RadioButton Name="radioButtonBothVariants"
+                                         Content="Не важно"
+                                         IsChecked="True"
+                                         Click="radioButtonChange"
+                                         Style="{StaticResource radioButtonMainStyle}"/>
+                            </StackPanel>
                         </StackPanel>
                     </Border>
                     
@@ -258,10 +278,10 @@
                       Width="600"
                       Margin="0 0 0 20">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Карта получателя"
+                    <DataGridTextColumn Header="Карта отправителя"
                                         Binding="{Binding Path= sendercardnum}"
                                         Width="30*"/>
-                    <DataGridTextColumn Header="Карта отправителя"
+                    <DataGridTextColumn Header="Карта получателя"
                                         Binding="{Binding Path= recipientcardnum}"
                                         Width="30*"/>
                     <DataGridTextColumn Header="Сумма"

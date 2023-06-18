@@ -108,6 +108,7 @@ namespace Card_management_system.Pages
 
         private void buttonPageTransaction_Click(object sender, RoutedEventArgs e)
         {
+            var client = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id);
             if (CheckForTransaction())
                 PageClass.frameObject.Navigate(new PageClientTransaction(client));
             else
