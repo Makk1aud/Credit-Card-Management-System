@@ -14,7 +14,6 @@
                 ImageSource="./Resource/Background/BackgroundImage3.png"/>
     </Window.Background>
     <Grid>
-        
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="85*"/>
@@ -44,7 +43,7 @@
                Name="frameMain"
                NavigationUIVisibility="Hidden"/>
         <StackPanel Grid.Row="2" HorizontalAlignment="Center">
-            <TextBlock Text="by makk1laud"
+            <TextBlock Text="by makk1aud"
                        PreviewMouseDown="TextBlock_PreviewMouseDown"
                        Style="{StaticResource textBlockUnderline}"
                        Foreground="DarkGray"
