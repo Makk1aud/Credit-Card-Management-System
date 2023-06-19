@@ -229,6 +229,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\Images\Icon\Icon_2.jpg" />
+    <Resource Include="Resource\Images\Icon\Icon.jpg" />
     <Resource Include="Resource\Images\ClipboardImage\Clipboard.png" />
     <Resource Include="Resource\Background\BackgroundImage3.png" />
     <Resource Include="Resource\Background\BackgroundImage2.png" />

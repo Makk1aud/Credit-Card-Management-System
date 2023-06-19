@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:Card_management_system"
         mc:Ignorable="d"
         
-        Title="MainWindow" SizeToContent="WidthAndHeight"
+        Title="Система управления банковскими картами" SizeToContent="WidthAndHeight"
         Width="430" Height="500"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Icon="/Resource/Images/Icon/Icon_2.jpg">
     <Window.Background>
         <ImageBrush 
                 ImageSource="./Resource/Background/BackgroundImage3.png"/>

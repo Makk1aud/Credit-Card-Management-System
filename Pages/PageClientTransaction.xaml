@@ -258,7 +258,7 @@
                                          Click="radioButtonChange"
                                          Style="{StaticResource radioButtonMainStyle}"/>
                                 <RadioButton Name="radioButtonBothVariants"
-                                         Content="Не важно"
+                                         Content="Все"
                                          IsChecked="True"
                                          Click="radioButtonChange"
                                          Style="{StaticResource radioButtonMainStyle}"/>
