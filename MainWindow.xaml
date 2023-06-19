@@ -18,6 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="85*"/>
+            <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         
         <Border BorderBrush="Beige" Background="Transparent" BorderThickness="1" DockPanel.Dock="Top">
@@ -41,8 +42,13 @@
         
         <Frame Grid.Row="1"
                Name="frameMain"
-               NavigationUIVisibility="Hidden"
-               />
-
+               NavigationUIVisibility="Hidden"/>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+            <TextBlock Text="by makk1laud"
+                       PreviewMouseDown="TextBlock_PreviewMouseDown"
+                       Style="{StaticResource textBlockUnderline}"
+                       Foreground="DarkGray"
+                       TextDecorations="None"/>
+        </StackPanel>
     </Grid>
 </Window>

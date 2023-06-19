@@ -269,7 +269,7 @@
                 </StackPanel>
                           
             </StackPanel>
-            
+
             <DataGrid CanUserAddRows="False"
                       IsReadOnly="True"
                       AutoGenerateColumns="False"
@@ -290,8 +290,6 @@
                     <DataGridTextColumn Header="Дата перевода"
                                         Binding="{Binding Path=transactiondate}"
                                         Width="20*"/>
-                    
-
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

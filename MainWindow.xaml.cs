@@ -2,6 +2,7 @@
 using Card_management_system.Pages;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,11 @@ namespace Card_management_system
             PageClass.frameObject = frameMain;
             PageClass.connectDB = new Card_Management_SystemEntities4();
             frameMain.Navigate(new PageLogin());
+        }
+
+        private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://vk.com/makklaud89") { UseShellExecute = true });
         }
     }
 }
