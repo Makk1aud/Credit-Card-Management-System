@@ -44,7 +44,6 @@ namespace Card_management_system.Pages
             SortByRadioButton(ref listSort);
             dataGridTransactions.ItemsSource = listSort;
         }
-
         // sort by combo box 
         private void ComboBoxSort(ref List<Transactions> listSort)
         {
@@ -53,7 +52,6 @@ namespace Card_management_system.Pages
             else if (comboBoxMoneySort.SelectedIndex == 1)
                 listSort = listSort.OrderByDescending(x => x.moneysum).ToList();
         }
-
         //sort by text box
         private void TextBoxSort( ref List<Transactions> listSort)
         {
