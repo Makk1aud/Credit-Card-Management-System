@@ -106,6 +106,7 @@ namespace Card_management_system.Pages
                     MessageBoxImage.Error);
         }
 
+
         private void buttonPageTransaction_Click(object sender, RoutedEventArgs e)
         {
             var client = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id);

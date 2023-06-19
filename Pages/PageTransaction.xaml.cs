@@ -2,6 +2,7 @@
 using Card_management_system.DataApp;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,7 +85,8 @@ namespace Card_management_system.Pages
         private bool CheckMoneySum(TextBox textBox)
         {
             decimal num;
-            return Decimal.TryParse(textBox.Text, out num) && int.Parse(textBox.Text) <= (comboBoxSenderCard.SelectedItem as Client).balance;
+            return Decimal.TryParse(textBox.Text, out num) && int.Parse(textBox.Text) <= (comboBoxSenderCard.SelectedItem as Client).balance
+                && int.Parse(textBox.Text) > 0;
         }
 
         public bool CheckSenderCard(TextBox textBox)

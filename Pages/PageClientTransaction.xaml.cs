@@ -65,7 +65,7 @@ namespace Card_management_system.Pages
         private void DatePickerSort(ref List<Transactions> listSort)
         {
             if(datePickerTransactionSort.SelectedDate != null)
-                listSort = listSort.Where(x => x.transactiondate == datePickerTransactionSort.SelectedDate).ToList();
+                listSort = listSort.Where(x => x.transactiondate.Value.Date == datePickerTransactionSort.SelectedDate.Value.Date).ToList();
         }
 
         private void SortByRadioButton(ref List<Transactions> listSort)

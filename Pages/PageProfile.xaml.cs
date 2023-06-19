@@ -40,9 +40,18 @@ namespace Card_management_system.Pages
             PageClass.frameObject.Navigate(new PageLogin());
         }
 
+        private bool CheckForTransaction() => PageClass.connectDB.Client.Count(x => x.userid == user.id) > 0;
+
         private void buttonHistoryOfTransaction_Click(object sender, RoutedEventArgs e)
         {
-            PageClass.frameObject.Navigate(new PageClientTransaction(PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id)));
+            var client = PageClass.connectDB.Client.FirstOrDefault(x => x.userid == user.id);
+            if (CheckForTransaction())
+                PageClass.frameObject.Navigate(new PageClientTransaction(client));
+            else
+                MessageBox.Show("У вас нет карт",
+                    "Warning",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);          
         }
     }
 }
