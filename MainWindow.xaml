@@ -14,7 +14,6 @@
                 ImageSource="./Resource/Background/BackgroundImage3.png"/>
     </Window.Background>
     <Grid>
-        
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="85*"/>
