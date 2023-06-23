@@ -36,10 +36,12 @@ namespace Card_management_system.Pages
 
             FillingComboBox.ComboBoxItems(comboBoxCardChoose, "id", "cardnumber");
             comboBoxCardChoose.ItemsSource = PageClass.connectDB.Client.Where(x => x.userid == user.id).ToList();
+            comboBoxCardChoose.SelectedItem = comboBoxCardChoose.Items[0];
         }
 
         private bool CheckForTransaction() => PageClass.connectDB.Client.Count(x => x.userid == user.id) > 0;
 
+        // Filling all description about user
         private void FillingCardDescription(Client client)
         {
             if (client == null)
@@ -53,6 +55,7 @@ namespace Card_management_system.Pages
 
         }
 
+        //swap client cvv for special symbols
         private void SwapCVV()
         {
             if (textBlockCardCvv.Text == "$$$")
@@ -61,19 +64,20 @@ namespace Card_management_system.Pages
                 textBlockCardCvv.Text = "$$$";
         }
 
-        private void ShowHidePassword(object sender, MouseButtonEventArgs e)
+        //swap images for hide or open cvv
+        private void ShowHideCVV(object sender, MouseButtonEventArgs e)
         {
             if(client== null) return;
             System.Windows.Controls.Image image = sender as System.Windows.Controls.Image;
-            if(image == imageHidePassword)
+            if(image == imageHideCVV)
             {
-                imageShowPassword.Visibility = Visibility.Visible;
-                imageHidePassword.Visibility = Visibility.Hidden; 
+                imageShowCVV.Visibility = Visibility.Visible;
+                imageHideCVV.Visibility = Visibility.Hidden; 
             }
             else
             {
-                imageShowPassword.Visibility = Visibility.Hidden;
-                imageHidePassword.Visibility = Visibility.Visible;
+                imageShowCVV.Visibility = Visibility.Hidden;
+                imageHideCVV.Visibility = Visibility.Visible;
             }
             SwapCVV();
         }
@@ -105,7 +109,6 @@ namespace Card_management_system.Pages
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
         }
-
 
         private void buttonPageTransaction_Click(object sender, RoutedEventArgs e)
         {

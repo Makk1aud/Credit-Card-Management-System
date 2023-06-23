@@ -1,4 +1,5 @@
-﻿using Card_management_system.DataApp;
+﻿using Card_management_system.Classes;
+using Card_management_system.DataApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +30,7 @@ namespace Card_management_system.Pages
         {
             InitializeComponent();
 
-            comboBoxCardType.SelectedValuePath = "id";
-            comboBoxCardType.DisplayMemberPath= "name";
+            FillingComboBox.ComboBoxItems(comboBoxCardType, "id", "name");
             comboBoxCardType.ItemsSource = PageClass.connectDB.Cards.ToList();
             this.user = user;
         }
@@ -45,8 +45,10 @@ namespace Card_management_system.Pages
         {
             if (comboBoxCardType.SelectedItem != null && CheckCVV(textBoxCVV))
             {
+                //Create card number
                 for (int i = 0; i < 4; i++)
                     cardNumber += $"{random.Next(1000, 9999)} ";
+                //Filling client information
                 Client client = new Client()
                 {
                     userid = user.id,
@@ -56,10 +58,7 @@ namespace Card_management_system.Pages
                     cvv = textBoxCVV.Text
                 };
                 PageClass.connectDB.Client.Add(client);
-                PageClass.connectDB.SaveChanges();
-                MessageBox.Show("Вы успешно создали карту",
-                    "Успешно", MessageBoxButton.OK,
-                    MessageBoxImage.Information);
+                DataBaseCardManagement.SaveChangesDataBase("Успешно");
                 PageClass.frameObject.Navigate(new PageClient(user));
             }
         }

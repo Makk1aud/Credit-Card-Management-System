@@ -31,12 +31,15 @@ namespace Card_management_system.Pages
         {
             InitializeComponent();
             this.client = client;
+
             comboBoxSelectMethod.ItemsSource = new List<string>() { "По номеру телефона", "По номеру карты" };
             FillingComboBox.ComboBoxItems(comboBoxSenderCard, "id", "cardnumber");
+
             comboBoxSenderCard.ItemsSource = PageClass.connectDB.Client.Where(x => x.userid == client.userid).ToList();
             FillingComboBox.ComboBoxItems(comboBoxSelectRecipientCard, "id", "cardnumber");
         }
 
+        //Change method for transaction? in begin clear text boxes next select which method chosen
         private void comboBoxSelectMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ChangeStatusOfStackPanel changeStatus = new ChangeStatusOfStackPanel();
@@ -58,6 +61,7 @@ namespace Card_management_system.Pages
                 textBoxTelephone.Text = "+" + textBoxTelephone.Text;
         }
 
+        //Is changed by the client based on the selected metho
         private void ChooseMethodTransaction()
         {
             string recipientCardNum;
@@ -94,7 +98,6 @@ namespace Card_management_system.Pages
             return PageClass.connectDB.Client.FirstOrDefault(x => x.cardnumber == textBox.Text) == (comboBoxSenderCard.SelectedItem as Client);
         }
 
-        // Сделать вычитание суммы
         public void MinusMoneySum()
         {
             var client = PageClass.connectDB.Client.FirstOrDefault(x=>x.cardnumber == (comboBoxSenderCard.SelectedItem as Client).cardnumber);
@@ -131,6 +134,7 @@ namespace Card_management_system.Pages
             }
         }
 
+        //filling combo box with card from text box telephone 
         private void textBoxTelephone_LostFocus(object sender, RoutedEventArgs e)
         {
             recipientUser = PageClass.connectDB.Users.FirstOrDefault(x => x.number == textBoxTelephone.Text);
@@ -154,6 +158,7 @@ namespace Card_management_system.Pages
         private void imageClipboard_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             textBoxTelephone.Text = Clipboard.GetText();
+            textBoxTelephone_LostFocus(sender, e);
         }
     }
 }

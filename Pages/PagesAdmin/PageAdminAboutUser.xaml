@@ -28,7 +28,6 @@
                     Height="35"
                     Width="120"
                     HorizontalAlignment="Left"
-                    Margin="20"
                     Click="buttonBack_Click"/>
             </StackPanel>
             <DataGrid AutoGenerateColumns="False"
@@ -37,7 +36,8 @@
                       Width="600"
                       Height="150"
                       Name="dataGridListOfCards"
-                      Margin="0 0 0 30">
+                      Margin="0 0 0 30"
+                      Cursor="IBeam">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Card number"
                                         Width="22*"

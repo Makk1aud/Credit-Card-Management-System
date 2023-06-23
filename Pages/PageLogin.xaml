@@ -25,10 +25,9 @@
                            Style="{StaticResource textBlockRegistration}"/>
                 <TextBox Name="textboxLogin"
                          Width="250"
-                         Background="Transparent"
-                         FontSize="20pt"
                          MaxLength="25"
-                         Foreground="Beige"/>
+                         Height="45"
+                         Style="{StaticResource textBoxMainStyle}"/>
 
             </StackPanel>
 
@@ -42,11 +41,9 @@
 
                 <TextBox Name="textBoxPass"
                          Width="250"
-                         Background="Transparent"
-                             FontSize="20pt"
-                             Foreground="Beige"
                          Height="45"
-                         MaxLength="12"/>
+                         MaxLength="12"
+                         Style="{StaticResource textBoxMainStyle}"/>
                 <PasswordBox Width="250"
                      Background="Transparent"
                      FontSize="20pt"
@@ -63,7 +60,8 @@
                           Foreground="Beige"
                           HorizontalAlignment="Right"
                           Margin="0 0 0 10"
-                          Click="checkBoxShowPassword_Click"/>
+                          Click="checkBoxShowPassword_Click"
+                          Cursor="Hand"/>
                 <Button Name="buttonLogin"
                         Width="100"
                         Height="40"
@@ -77,7 +75,8 @@
                     Text="Нет аккаунта?"
                     Margin="0 10 0 20" Height="41"
                     TextAlignment="Center"
-                    VerticalAlignment="Center"/>
+                    VerticalAlignment="Center"
+                    Cursor="Hand"/>
             </StackPanel>
 
         </StackPanel>
