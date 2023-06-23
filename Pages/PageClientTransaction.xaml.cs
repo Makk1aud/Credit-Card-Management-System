@@ -29,7 +29,8 @@ namespace Card_management_system.Pages
             InitializeComponent();
             dataGridTransactions.ItemsSource = PageClass.connectDB.Transactions.Where(x => x.senderid == client.id || x.recipientid == client.id).ToList();
             this.client = client;
-            comboBoxMoneySort.ItemsSource = new List<string>() { "По возрастанию", "По убыванию" };
+            comboBoxMoneySort.ItemsSource = new List<string>() { "Возрастанию", "Убыванию", "Нет" };
+            comboBoxMoneySort.SelectedItem = comboBoxMoneySort.Items[2];
         }
 
         public List<Transactions> DefaultList() => PageClass.connectDB.Transactions.Where(x => x.senderid == client.id).ToList();
@@ -66,6 +67,7 @@ namespace Card_management_system.Pages
                 listSort = listSort.Where(x => x.transactiondate.Value.Date == datePickerTransactionSort.SelectedDate.Value.Date).ToList();
         }
 
+        //sort by raiod buttons
         private void SortByRadioButton(ref List<Transactions> listSort)
         {
             if((bool)radioButtonBothVariants.IsChecked)

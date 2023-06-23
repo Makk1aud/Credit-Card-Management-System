@@ -256,10 +256,10 @@
 
                         <ComboBox Name="comboBoxSelectRecipientCard"
                               Template="{DynamicResource ComboBoxTemplate1}"
-                          Style="{DynamicResource comboBoxMain}"
-                          Width="231"
-                          Height="35"
-                          Margin="20"/>
+                              Style="{DynamicResource comboBoxMain}"
+                              Width="231"
+                              Height="35"
+                              Margin="20"/>
 
                     </StackPanel>
                 </StackPanel>

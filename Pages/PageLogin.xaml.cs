@@ -28,6 +28,7 @@ namespace Card_management_system.Pages
             textBoxPass.Visibility = Visibility.Hidden;   
         }
 
+        // when checkBox was clicked, text box and password box change with user input data
         private void checkBoxShowPassword_Click(object sender, RoutedEventArgs e)
         {
             var checkBox = sender as CheckBox;
@@ -54,6 +55,7 @@ namespace Card_management_system.Pages
             FirstOrDefault(t => t.login == textboxLogin.Text && 
             (t.password == textBoxPass.Text || t.password == passwordBoxPass.Password));
 
+        // Check role of user for change hims page
         public void UserRole(Users users)
         {
             if(users.roleid == 1)

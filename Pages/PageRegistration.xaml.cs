@@ -36,6 +36,7 @@ namespace Card_management_system.Pages
             return false;
         }
 
+        //Checking for correct data
         public bool CheckTelephone(TextBox textBox) => textBoxTelephone.Text.Length == 12 && CheckTelephoneSymbols(textBox);
 
         public bool CountNumbers(PasswordBox passwordBox) => passwordBox.Password.Where(x => Char.IsNumber(x)).Count() > 0;
@@ -64,6 +65,7 @@ namespace Card_management_system.Pages
                    && !DataBaseCardManagement.CheckDistinctEmailData(textBoxEmail.Text);    
         }
 
+        //Create an user
         private Users CreateUser()
         {
             try

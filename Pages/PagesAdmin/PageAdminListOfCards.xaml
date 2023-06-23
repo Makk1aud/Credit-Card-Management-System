@@ -28,7 +28,7 @@
                     Height="35"
                     Width="120"
                     HorizontalAlignment="Left"
-                    Margin="20"
+                    Margin="0 0 20 0"
                     Click="buttonBack_Click"/>
                 <TextBlock Text="Gender"
                            Margin="0 16 0 0"

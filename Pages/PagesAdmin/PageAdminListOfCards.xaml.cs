@@ -33,6 +33,7 @@ namespace Card_management_system.Pages.PagesAdmin
 
         public List<Users> DefaultUserList()=> PageClass.connectDB.Users.ToList();
 
+        //Sorting of datagrid
         private void FillingDataGrid()
         {
             List<Users> usersList = DefaultUserList();

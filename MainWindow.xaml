@@ -48,7 +48,8 @@
                        PreviewMouseDown="TextBlock_PreviewMouseDown"
                        Style="{StaticResource textBlockUnderline}"
                        Foreground="DarkGray"
-                       TextDecorations="None"/>
+                       TextDecorations="None"
+                       Cursor="Hand"/>
         </StackPanel>
     </Grid>
 </Window>

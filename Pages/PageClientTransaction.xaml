@@ -222,28 +222,28 @@
                         <StackPanel >
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Сумма больше"
-                                FontSize="10pt"
-                                Height="20"
-                                Width="100"
-                                Style="{StaticResource textBlockRegistration}"/>
+                                    FontSize="10pt"
+                                    Height="20"
+                                    Width="100"
+                                    Style="{StaticResource textBlockRegistration}"/>
                                 <TextBox Name="textBoxMoneySort"
-                                Style="{StaticResource textBoxMainStyle}"
-                                Height="30"
-                                Width="100"
-                                MaxLength="6"
-                                Margin="10"
-                                FontSize="13pt"
-                                TextChanged="textBoxMoneySort_TextChanged"/>
+                                    Style="{StaticResource textBoxMainStyle}"
+                                    Height="30"
+                                    Width="100"
+                                    MaxLength="6"
+                                    Margin="10"
+                                    FontSize="13pt"
+                                    TextChanged="textBoxMoneySort_TextChanged"/>
                                 <DatePicker Name="datePickerTransactionSort"
-                                Width="100"
-                                Height="30"
-                                Margin="0 0 10 0"
-                                SelectedDateChanged="datePickerTransactionSort_SelectedDateChanged"/>
+                                    Width="100"
+                                    Height="30"
+                                    Margin="0 0 10 0"
+                                    SelectedDateChanged="datePickerTransactionSort_SelectedDateChanged"/>
                                 <ComboBox Template="{DynamicResource ComboBoxTemplate1}" Name="comboBoxMoneySort"
-                                Style="{StaticResource comboBoxMain}"
-                                Width="100"
-                                Height="30"
-                                SelectionChanged="comboBoxMoneySort_SelectionChanged"/>
+                                    Style="{StaticResource comboBoxMain}"
+                                    Width="110"
+                                    Height="30"
+                                    SelectionChanged="comboBoxMoneySort_SelectionChanged"/>
 
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
@@ -256,12 +256,12 @@
                                 <RadioButton Name="radioButtonRecipient"
                                          Content="Я получал"
                                          Click="radioButtonChange"
-                                         Style="{StaticResource radioButtonMainStyle}"/>
+                                         Style="{StaticResource radioButtonMainStyle}" Width="123"/>
                                 <RadioButton Name="radioButtonBothVariants"
                                          Content="Все"
                                          IsChecked="True"
                                          Click="radioButtonChange"
-                                         Style="{StaticResource radioButtonMainStyle}"/>
+                                         Style="{StaticResource radioButtonMainStyle}" Width="59"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>

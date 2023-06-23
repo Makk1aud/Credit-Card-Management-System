@@ -29,7 +29,8 @@
                 <TextBlock Text="Выйти с аккаунта"
                            Style="{StaticResource textBlockUnderline}"
                            Width="150"
-                           PreviewMouseDown="TextBlock_PreviewMouseDown"/>
+                           PreviewMouseDown="TextBlock_PreviewMouseDown"
+                           Cursor="Hand"/>
             </StackPanel>
             
             <StackPanel HorizontalAlignment="Center">

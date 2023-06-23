@@ -300,17 +300,19 @@
                        Height="355" Width="415" Margin="38,70,247,74"/>
         <Image Source="/Resource/Images/CvvImages/ShowPasswordImage.png" 
                Margin="343,191,287,219"
-               PreviewMouseDown="ShowHidePassword"
+               PreviewMouseDown="ShowHideCVV"
                Height="34"
                Width="59"
-               Name="imageShowPassword"/>
+               Name="imageShowCVV"
+               Cursor="Hand"/>
         <Image Source="/Resource/Images/CvvImages/HidePasswordImage.png" 
                Margin="360,218,304,242"
-               Name="imageHidePassword"
+               Name="imageHideCVV"
                Height="34"
                Width="30"
-               PreviewMouseDown="ShowHidePassword"
-               Visibility="Hidden"/>
+               PreviewMouseDown="ShowHideCVV"
+               Visibility="Hidden"
+               Cursor="Hand"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal"
                     VerticalAlignment="Top">
@@ -331,10 +333,13 @@
                    Margin="0 0 -258 0"
                    Name="imageProfile"
                    PreviewMouseDown="imageProfile_PreviewMouseDown" 
-                       Width="51"/>
+                   Width="51"
+                   Cursor="Hand"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <ComboBox Style="{DynamicResource ComboBoxStyleCorner}" Name="comboBoxCardChoose"
+                <ComboBox Style="{DynamicResource ComboBoxStyleCorner}" 
+                          Name="comboBoxCardChoose"
+                          Cursor="Hand"
                           Width="231"
                           Height="35"
                           SelectionChanged="comboBoxCardChoose_SelectionChanged"
@@ -344,7 +349,8 @@
                            Foreground="BlueViolet"
                            TextAlignment="Left"
                            Margin="10 2 0 0"
-                           PreviewMouseDown="TextBlock_PreviewMouseDown"/>
+                           PreviewMouseDown="TextBlock_PreviewMouseDown"
+                           Cursor="Hand"/>
 
             </StackPanel>
 
