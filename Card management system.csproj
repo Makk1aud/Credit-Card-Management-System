@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Classes\ChangeStatus\ChangeStatusOfControl.cs" />
     <Compile Include="Classes\ChangeStatus\ChangeStatusOfStackPanel.cs" />
+    <Compile Include="Classes\ClassAboutUser\AboutUser.cs" />
     <Compile Include="Classes\DataBaseCardManagement.cs" />
     <Compile Include="Classes\FillingComboBox.cs" />
     <Compile Include="DataApp\Cards.cs">

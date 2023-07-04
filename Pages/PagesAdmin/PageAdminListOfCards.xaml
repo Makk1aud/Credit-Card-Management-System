@@ -65,7 +65,7 @@
                                         Width="10*"
                                         Binding="{Binding Path=patromymic}"/>
                     <DataGridTextColumn Header="Gender"
-                                        Width="5*"
+                                        Width="7*"
                                         Binding="{Binding Path=gender}"/>
                     <DataGridTextColumn Header="Number"
                                         Width="15*"
@@ -75,7 +75,7 @@
                                         Binding="{Binding Path=login}"/>
                     <DataGridTextColumn Header="Passsword"
                                         Width="15*"
-                                        Binding="{Binding Path=passsword}"/>
+                                        Binding="{Binding Path=password}"/>
                     <DataGridTemplateColumn Width="10*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

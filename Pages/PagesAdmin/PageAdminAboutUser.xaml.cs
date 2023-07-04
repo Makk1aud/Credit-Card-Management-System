@@ -1,4 +1,5 @@
 ﻿using Card_management_system.Classes;
+using Card_management_system.Classes.ClassAboutUser;
 using Card_management_system.DataApp;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,15 @@ namespace Card_management_system.Pages.PagesAdmin
             InitializeComponent();
             this.users = users;
             dataGridListOfCards.ItemsSource = PageClass.connectDB.Client.Where(x => x.userid== users.id).ToList();
+            //dataGridListOfCards.ItemsSource = PageClass.connectDB.Client.Where(h => h.userid == users.id).Select(x => new AboutUser
+            //{
+            //    CardNumber = x.cardnumber,
+            //    Balance = x.balance,
+            //    CardDate = (DateTime)x.carddate,
+            //    CardProvider = PageClass.connectDB.Cards.FirstOrDefault(k => k.id == x.cardid).name,
+            //    CardCVV = x.cvv,
+            //}).ToList();
+            textBlockRoleChanger.Text = PageClass.connectDB.Roles.FirstOrDefault(x => x.id == users.id).name;
         }
 
         private void buttonSaveChanges_Click(object sender, RoutedEventArgs e)

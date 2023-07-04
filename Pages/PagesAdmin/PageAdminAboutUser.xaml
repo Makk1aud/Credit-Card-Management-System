@@ -29,6 +29,16 @@
                     Width="120"
                     HorizontalAlignment="Left"
                     Click="buttonBack_Click"/>
+                <TextBlock Text="Роль:"
+                           Style="{StaticResource textBlockRegistration}"
+                           Height="30"
+                           Width="80"
+                           Margin="20 0 0 5"/>
+                <TextBlock Name="textBlockRoleChanger"
+                         Style="{StaticResource textBlockRegistration}"
+                         Height="35"
+                         Width="240"
+                         Margin="0 0 0 0"/>
             </StackPanel>
             <DataGrid AutoGenerateColumns="False"
                       IsReadOnly="False"
